@@ -1,0 +1,3562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Enter — Engineering & Client Founder hunting</title>
+<style>
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f4ee;
+    --color-background-tertiary: #faf9f5;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #6b6b6b;
+    --color-text-tertiary: #9a9a9a;
+    --color-text-info: #185FA5;
+    --color-border-tertiary: rgba(0,0,0,0.08);
+    --color-border-secondary: rgba(0,0,0,0.15);
+    --color-border-primary: rgba(0,0,0,0.25);
+    --enter-yellow: #F5B041;
+    --enter-yellow-soft: #FCE8C5;
+    --enter-yellow-bg: #FFF4E0;
+    --enter-black: #1a1a1a;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1f1f1f;
+      --color-background-secondary: #2a2a2a;
+      --color-background-tertiary: #181818;
+      --color-text-primary: #f0f0f0;
+      --color-text-secondary: #b0b0b0;
+      --color-text-tertiary: #808080;
+      --color-text-info: #85B7EB;
+      --color-border-tertiary: rgba(255,255,255,0.08);
+      --color-border-secondary: rgba(255,255,255,0.15);
+      --color-border-primary: rgba(255,255,255,0.25);
+      --enter-yellow: #F5B041;
+      --enter-yellow-soft: #4A3818;
+      --enter-yellow-bg: #2D2418;
+      --enter-black: #f0f0f0;
+    }
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+  }
+
+  /* Header com identidade Enter */
+  .enter-header {
+    background: var(--enter-yellow);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .enter-logo {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .enter-logo-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+  }
+  .enter-logo-icon::before {
+    content: "";
+    position: absolute;
+    background: #1a1a1a;
+    width: 8px;
+    height: 16px;
+    left: 8px;
+    top: 0;
+  }
+  .enter-logo-icon::after {
+    content: "";
+    position: absolute;
+    background: #1a1a1a;
+    width: 16px;
+    height: 8px;
+    left: 0;
+    top: 8px;
+  }
+  .enter-header-meta {
+    font-size: 13px;
+    color: #1a1a1a;
+    opacity: 0.75;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .header { margin-bottom: 1.5rem; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 0.5rem; }
+  h2 { font-size: 18px; font-weight: 500; margin: 2.5rem 0 0.5rem; }
+  h3 { font-size: 16px; font-weight: 500; margin: 1.5rem 0 0.5rem; }
+  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1.5rem; }
+  .author-line {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 0 0 1.5rem;
+    padding-left: 12px;
+    border-left: 3px solid var(--enter-yellow);
+  }
+  .intro-text { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1rem; line-height: 1.7; }
+
+  /* Tab toggle entre as três vagas — STICKY para sempre saber onde está */
+  .vaga-tabs-wrapper {
+    margin-bottom: 1.25rem;
+    position: sticky;
+    top: 0;
+    background: var(--color-background-tertiary);
+    padding: 14px 0 12px;
+    z-index: 30;
+    border-bottom: 1px solid var(--color-border-tertiary);
+  }
+  .vaga-tabs-label {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .vaga-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--color-background-secondary);
+    padding: 4px;
+    border-radius: var(--border-radius-md);
+    width: fit-content;
+    border: 1px solid var(--color-border-tertiary);
+    flex-wrap: wrap;
+  }
+  .vaga-tab {
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    font-family: inherit;
+    transition: all 0.15s ease;
+  }
+  .vaga-tab:hover {
+    color: var(--color-text-primary);
+    background: rgba(245, 176, 65, 0.1);
+  }
+  .vaga-tab.active {
+    background: var(--enter-yellow);
+    color: #1a1a1a;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .vaga-current-indicator {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin: 8px 0 0;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 0.04em;
+  }
+  .vaga-current-indicator strong {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  .vaga-pane { display: none; }
+  .vaga-pane.active { display: block; }
+
+  details.premissas {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  details.premissas summary {
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    list-style: none;
+  }
+  details.premissas summary::before {
+    content: "▸";
+    color: var(--color-text-primary);
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 8px;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: -2px;
+  }
+  details.premissas[open] summary::before { content: "▾"; }
+  details.premissas .premissas-body { font-size: 13px; color: var(--color-text-primary); margin-top: 12px; padding-top: 12px; border-top: 0.5px solid var(--color-border-tertiary); }
+  details.premissas .premissas-body p { margin: 0 0 8px; }
+  details.premissas .premissas-body strong { font-weight: 500; }
+  .premissa-quote {
+    margin: 16px 0 4px !important;
+    padding: 10px 14px;
+    border-left: 3px solid var(--enter-yellow);
+    background: var(--enter-yellow-bg);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    font-size: 13px !important;
+    font-style: italic;
+    color: var(--color-text-primary) !important;
+    line-height: 1.55;
+  }
+
+  /* Bloco de stats reformulado — explicando o recorte */
+  .stats-block {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .stats-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+  }
+  .stats-headline-big {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .stats-headline-big strong { color: var(--enter-yellow); font-weight: 700; }
+  .stats-headline-detail {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  .stats-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px 18px;
+    padding: 4px 0;
+  }
+  .stat-mini {
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .stat-mini + .stat-mini::before {
+    content: "|";
+    color: var(--color-border-secondary);
+    margin-right: 10px;
+    font-weight: 300;
+  }
+  .stat-mini-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-weight: 600;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .stat-mini-value {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+  .stat-mini-detail {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-style: italic;
+  }
+  /* Sem cores específicas — todos os mini iguais, em tom de preto */
+  .stat-mini.rock,
+  .stat-mini.fp,
+  .stat-mini.naoencaixa {
+    background: transparent;
+    border: none;
+  }
+  .stat-mini.rock .stat-mini-label,
+  .stat-mini.fp .stat-mini-label,
+  .stat-mini.naoencaixa .stat-mini-label { color: var(--color-text-secondary); }
+  .stat-mini.rock .stat-mini-value,
+  .stat-mini.fp .stat-mini-value,
+  .stat-mini.naoencaixa .stat-mini-value { color: var(--color-text-primary); }
+  .stat-mini.rock .stat-mini-detail,
+  .stat-mini.fp .stat-mini-detail,
+  .stat-mini.naoencaixa .stat-mini-detail { color: var(--color-text-secondary); }
+
+  /* Mantém compatibilidade com o JS antigo dos stats */
+  .dash-summary { display: none; }
+  .dash-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 1.25rem; }
+  .dash-controls input[type="text"] {
+    flex: 1; min-width: 200px; max-width: 280px;
+    padding: 8px 12px; font-size: 14px;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-primary);
+    font-family: inherit;
+  }
+  .dash-controls input[type="text"]:focus { outline: none; box-shadow: 0 0 0 2px var(--color-border-primary); }
+  .dash-controls .filter-btn {
+    padding: 7px 14px;
+    font-size: 13px;
+    background: transparent;
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-weight: 500;
+    transition: all 0.15s ease;
+  }
+  .dash-controls .filter-btn:hover {
+    background: rgba(245, 176, 65, 0.08);
+    border-color: rgba(245, 176, 65, 0.4);
+  }
+  .dash-controls .filter-btn.active {
+    background: var(--enter-yellow);
+    color: #1a1a1a;
+    border-color: var(--enter-yellow);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  .dash-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .cand-card {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    border: 0.5px solid var(--color-border-tertiary);
+    padding: 1rem 1.25rem;
+  }
+  .cand-card.featured { border: 2px solid #1D9E75; }
+  .featured-tag { display: inline-block; background: #E1F5EE; color: #04342C; font-size: 11px; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; font-weight: 500; }
+  .cand-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .cand-name { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+  .cand-meta { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 4px; }
+  .cand-link { color: var(--color-text-info); font-size: 12px; text-decoration: none; }
+  .cand-link:hover { text-decoration: underline; }
+  .cand-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+  .badge { font-size: 12px; padding: 4px 10px; border-radius: 999px; font-weight: 500; white-space: nowrap; }
+  .badge-rock { background: #E1F5EE; color: #04342C; }
+  .badge-fp { background: #FAEEDA; color: #412402; }
+  .badge-naoencaixa { background: #FEEAD6; color: #5C2E04; }
+  .badge-ruim { background: #FCEBEB; color: #501313; }
+  .badge-ponte { background: #E8E1F5; color: #2A1255; font-size: 11px; padding: 3px 8px; }
+  .note-pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; }
+  .anos-pill { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: #E6F1FB; color: #042C53; font-weight: 500; }
+  .cand-body { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .cand-body .col-title { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin: 0 0 6px; }
+  .cand-body ul { margin: 0; padding-left: 16px; font-size: 13px; line-height: 1.6; color: var(--color-text-primary); }
+  .cand-body ul.pos li::marker { color: #0F6E56; }
+  .cand-body ul.neg li::marker { color: #A32D2D; }
+  .cand-just { font-size: 13px; line-height: 1.6; color: var(--color-text-primary); padding-top: 10px; border-top: 0.5px solid var(--color-border-tertiary); }
+  .cand-just strong { font-weight: 500; }
+  .empty-state { padding: 2rem; text-align: center; color: var(--color-text-secondary); font-size: 14px; }
+
+  .secondary-section { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-top: 1rem; }
+  .secondary-section .toggle-link { font-size: 13px; color: var(--color-text-info); cursor: pointer; }
+
+  .messages-section { margin-top: 1.5rem; }
+  .msg-card {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    border: 0.5px solid var(--color-border-tertiary);
+    padding: 1rem 1.25rem;
+    margin-bottom: 12px;
+  }
+  .msg-stage { font-size: 11px; font-weight: 500; color: #185FA5; background: #E6F1FB; display: inline-block; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .msg-title { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+  .msg-meta { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 12px; }
+  .msg-body {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    padding: 12px 14px;
+    border-radius: var(--border-radius-md);
+    white-space: pre-wrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .msg-rationale { font-size: 12px; color: var(--color-text-secondary); margin: 8px 0 0; line-height: 1.6; }
+  .msg-rationale strong { font-weight: 500; color: var(--color-text-primary); }
+
+  @media (max-width: 540px) { .cand-body { grid-template-columns: 1fr; } }
+
+  /* Parte como <details> com seta indicadora */
+  details.parte {
+    margin: 2rem 0 0;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    padding-top: 1rem;
+  }
+  details.parte > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 0.5rem;
+  }
+  details.parte > summary::-webkit-details-marker { display: none; }
+  details.parte > summary::before {
+    content: "▸";
+    font-size: 22px;
+    color: var(--color-text-primary);
+    font-weight: 700;
+    transition: transform 0.15s ease;
+    display: inline-block;
+    width: 22px;
+    margin-right: 6px;
+    line-height: 1;
+  }
+  details.parte[open] > summary::before { content: "▾"; }
+  details.parte > summary h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline;
+  }
+  details.parte > summary .summary-count {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+  }
+
+  /* Nota explicativa sobre as notas (tooltip-like) */
+  .notes-help {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    background: var(--color-background-secondary);
+    border-left: 2px solid var(--enter-yellow);
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin: 0 0 1rem;
+  }
+  .notes-help strong { color: var(--color-text-primary); }
+  .notes-help ul li { margin-bottom: 4px; }
+
+  /* Demais avaliados — lista compacta */
+  .others-list {
+    margin-top: 0.5rem;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+  .others-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    align-items: start;
+  }
+  .others-row:last-child { border-bottom: none; }
+  .others-row .o-name { font-size: 14px; font-weight: 500; margin: 0 0 2px; }
+  .others-row .o-meta { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px; }
+  .others-row .o-desc { font-size: 13px; color: var(--color-text-primary); line-height: 1.5; margin: 0; }
+  .others-row .o-link { font-size: 12px; color: var(--color-text-info); text-decoration: none; white-space: nowrap; }
+  .others-row .o-link:hover { text-decoration: underline; }
+
+  /* Visão geral — tabela compacta */
+  .overview-table {
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    background: var(--color-background-primary);
+  }
+  .overview-section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    padding: 8px 14px;
+    background: var(--color-background-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+  .overview-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    align-items: center;
+  }
+  .overview-row:last-child { border-bottom: none; }
+
+  /* Cores por vaga — tons suaves */
+  .overview-row.vaga-eng { background: #EAF2FB; }
+  .overview-row.vaga-cli { background: #E8F4EC; }
+  .overview-row.vaga-leg { background: #F0EBF8; }
+  .overview-row.vaga-eng:hover { background: #DCE9F7; }
+  .overview-row.vaga-cli:hover { background: #D9EDDF; }
+  .overview-row.vaga-leg:hover { background: #E5DCF3; }
+
+  @media (prefers-color-scheme: dark) {
+    .overview-row.vaga-eng { background: rgba(70, 130, 200, 0.18); }
+    .overview-row.vaga-cli { background: rgba(60, 150, 100, 0.18); }
+    .overview-row.vaga-leg { background: rgba(120, 80, 180, 0.2); }
+    .overview-row.vaga-eng:hover { background: rgba(70, 130, 200, 0.28); }
+    .overview-row.vaga-cli:hover { background: rgba(60, 150, 100, 0.28); }
+    .overview-row.vaga-leg:hover { background: rgba(120, 80, 180, 0.3); }
+  }
+  .overview-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-info);
+    text-decoration: none;
+  }
+  .overview-name:hover { text-decoration: underline; }
+  .overview-vaga {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+  .overview-cat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .overview-msg-link {
+    font-size: 12px;
+    color: var(--color-text-info);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .overview-msg-link:hover { text-decoration: underline; }
+  .overview-msg-empty {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+  }
+  @media (max-width: 600px) {
+    .overview-section-header { display: none; }
+    .overview-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 12px 14px;
+    }
+    .overview-vaga, .overview-cat { font-size: 12px; }
+  }
+  .others-row .o-tags { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  @media (max-width: 540px) {
+    .others-row { grid-template-columns: 1fr; }
+    .others-row .o-tags { flex-direction: row; align-items: flex-start; }
+  }
+  /* ============================================================ */
+  /* CAPA — INTRO + 2 BOTÕES + PAINÉIS                             */
+  /* ============================================================ */
+  .intro-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin: 0 0 14px;
+    font-weight: 500;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .container .header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0 0 8px;
+  }
+  .container .header .author-line {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0 0 18px;
+    padding-left: 12px;
+    border-left: 3px solid var(--enter-yellow);
+  }
+  .container .header .author-line strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+  .container .header .subtitle {
+    font-size: 15px;
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    margin: 0 0 32px;
+    max-width: 720px;
+  }
+  .container .header .subtitle strong {
+    color: var(--enter-black);
+    font-weight: 600;
+  }
+
+  /* 2 botões */
+  .nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 56px;
+  }
+  .nav-btn {
+    display: block;
+    padding: 22px 24px;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    text-align: left;
+    font-family: inherit;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    width: 100%;
+  }
+  .nav-btn:hover {
+    border-color: var(--enter-yellow);
+    background: var(--enter-yellow-bg);
+    transform: translateY(-1px);
+  }
+  .nav-btn.is-active {
+    background: var(--enter-yellow-bg);
+    border-color: var(--enter-yellow);
+    border-width: 2px;
+    padding: 21px 23px;
+  }
+  .nav-btn-num {
+    font-size: 11px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.12em;
+    margin: 0 0 6px;
+    font-weight: 500;
+  }
+  .nav-btn-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+  }
+  .nav-btn-sub {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .nav-btn-arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.15s;
+    font-weight: 500;
+  }
+  .nav-btn:hover .nav-btn-arrow { transform: translateX(3px); }
+
+  /* Painéis */
+  .panel {
+    display: none;
+    animation: fade 0.3s ease;
+  }
+  .panel.is-active { display: block; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-intro { margin-bottom: 32px; }
+  .panel-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin: 0 0 8px;
+    font-weight: 500;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .panel-title {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    line-height: 1.2;
+  }
+  .panel-lead {
+    font-size: 15px;
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    margin: 0 0 12px;
+    max-width: 720px;
+  }
+  .panel-lead strong { font-weight: 600; }
+  .panel-lead:last-child { margin-bottom: 0; }
+
+  /* ============================================================ */
+  /* TIMELINE METODOLOGIA                                          */
+  /* ============================================================ */
+  .timeline { margin-top: 32px; }
+  .step {
+    position: relative;
+    padding-left: 60px;
+    padding-bottom: 36px;
+    border-left: 2px solid var(--color-border-tertiary);
+    margin-left: 18px;
+  }
+  .step:last-child {
+    padding-bottom: 0;
+    border-left: 2px solid transparent;
+  }
+  .step::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -18px;
+    top: -2px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--color-background-primary);
+    border: 2px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 1;
+  }
+  .step-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+    margin: 0 0 6px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-weight: 500;
+  }
+  .step-title {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 12px;
+    color: var(--color-text-primary);
+  }
+  .step-body {
+    font-size: 14.5px;
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    margin-bottom: 12px;
+    max-width: 680px;
+  }
+  .step-body p + p { margin-top: 10px; }
+  .step-body p { margin: 0; }
+  .step-body strong { font-weight: 600; }
+  .step-body em { font-style: italic; }
+
+  .step-callout {
+    background: var(--enter-yellow-bg);
+    border-left: 3px solid var(--enter-yellow);
+    padding: 12px 16px;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    font-size: 13.5px;
+    color: var(--color-text-primary);
+    line-height: 1.55;
+    margin: 14px 0;
+    max-width: 680px;
+  }
+  .step-callout strong { font-weight: 600; }
+
+  /* Toggle row inside step */
+  .toggle-row-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 18px 0 8px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .toggle-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 760px;
+  }
+
+  /* Artifact toggle (the small clickable box that opens prompt/image/doc) */
+  .artifact-toggle {
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-primary);
+    overflow: hidden;
+  }
+  .artifact-toggle summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .artifact-toggle summary::-webkit-details-marker { display: none; }
+  .artifact-toggle summary::before {
+    content: "▸";
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.15s;
+    line-height: 1;
+  }
+  .artifact-toggle[open] summary::before { content: "▾"; }
+  .artifact-toggle summary:hover { background: var(--color-background-secondary); }
+  .artifact-icon { font-size: 15px; line-height: 1; }
+  .artifact-label {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .artifact-hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: auto;
+    font-style: italic;
+  }
+  .artifact-body {
+    border-top: 1px solid var(--color-border-tertiary);
+    padding: 14px 16px;
+    background: var(--color-background-tertiary);
+  }
+  .artifact-body pre {
+    background: #1a1a1a;
+    color: #f5e7c8;
+    border-radius: var(--border-radius-md);
+    padding: 18px 20px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    overflow-x: auto;
+    border: 1px solid #2a2a2a;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+  }
+  .artifact-body pre .key { color: #f5b041; }
+  .artifact-body pre .meta { color: #8a8275; }
+  .artifact-body pre .str { color: #a8d99e; }
+  .artifact-body pre strong { color: #ffd47a; font-weight: 600; }
+
+  .artifact-caption {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin: 12px 0 0;
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .artifact-caption a {
+    color: var(--color-text-info);
+    text-decoration: none;
+  }
+  .artifact-caption a:hover { text-decoration: underline; }
+
+  .image-placeholder, .doc-embed {
+    background: var(--color-background-secondary);
+    border: 1px dashed var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 20px 22px;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--color-text-primary);
+  }
+  .image-placeholder p, .doc-embed p { margin: 0 0 8px; }
+  .image-placeholder p:last-child, .doc-embed p:last-child { margin-bottom: 0; }
+  .image-placeholder strong, .doc-embed strong {
+    font-weight: 600;
+    color: #6b4500;
+  }
+  .placeholder-instruction {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+  .placeholder-instruction code {
+    background: var(--color-background-tertiary);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    color: var(--color-text-primary);
+    font-style: normal;
+  }
+
+  .jump-btn {
+    background: var(--color-text-primary);
+    color: var(--color-background-primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s;
+  }
+  .jump-btn:hover { transform: translateX(3px); }
+
+  /* Repositório */
+  .repo-block {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 22px 24px;
+    margin: 32px 0 0;
+  }
+  .repo-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .repo-sub {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .repo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+  .repo-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-size: 13px;
+    border-bottom: 1px dashed var(--color-border-tertiary);
+    transition: padding-left 0.15s;
+  }
+  .repo-list a:hover { padding-left: 4px; }
+  .repo-icon {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10px;
+    background: var(--color-background-secondary);
+    color: var(--color-text-secondary);
+    padding: 3px 7px;
+    border-radius: 3px;
+    width: 52px;
+    flex-shrink: 0;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .repo-icon.is-drive { color: #042C53; background: #E6F1FB; }
+
+  /* Ícones nas categorias */
+  .cat-icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 18px;
+    vertical-align: -2px;
+    line-height: 1;
+  }
+
+  /* CTA para próximo bloco (final do bloco 01) */
+  .next-block-cta {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border-tertiary);
+  }
+  .next-block-cta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin: 0 0 12px;
+    font-weight: 500;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .next-block-cta-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 22px 24px;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-family: inherit;
+    text-align: left;
+    transition: all 0.15s ease;
+  }
+  .next-block-cta-btn:hover {
+    border-color: var(--enter-yellow);
+    background: var(--enter-yellow-bg);
+    transform: translateY(-1px);
+  }
+  .next-block-cta-num {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--enter-yellow);
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+  .next-block-cta-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .next-block-cta-title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+  .next-block-cta-sub {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+  .next-block-cta-arrow {
+    font-size: 22px;
+    color: var(--color-text-primary);
+    transition: transform 0.15s;
+    flex-shrink: 0;
+  }
+  .next-block-cta-btn:hover .next-block-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Lista dentro de um step */
+  .step-list {
+    margin: 8px 0 12px 0;
+    padding-left: 22px;
+    font-size: 14.5px;
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    max-width: 680px;
+  }
+  .step-list li { margin-bottom: 4px; }
+  .step-list li::marker { color: var(--enter-yellow); }
+  .step-list strong { font-weight: 600; }
+
+  /* Banco de queries: tabs internas + listas */
+  .queries-tabs {
+    display: flex;
+    gap: 4px;
+    margin: 0 0 14px;
+    border-bottom: 1px solid var(--color-border-tertiary);
+    flex-wrap: wrap;
+  }
+  .queries-tab {
+    background: none;
+    border: none;
+    padding: 8px 14px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-weight: 500;
+  }
+  .queries-tab:hover { color: var(--color-text-primary); }
+  .queries-tab.is-active {
+    color: var(--color-text-primary);
+    border-bottom-color: var(--enter-yellow);
+    font-weight: 600;
+  }
+  .queries-content { display: none; }
+  .queries-content.is-active { display: block; }
+
+  .queries-placeholder-msg {
+    background: var(--enter-yellow-bg);
+    border-left: 3px solid var(--enter-yellow);
+    padding: 10px 14px;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    font-size: 13px;
+    color: var(--color-text-primary);
+    margin: 0 0 8px;
+    line-height: 1.55;
+  }
+  .queries-placeholder-msg strong { color: #6b4500; font-weight: 600; }
+
+  .queries-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .queries-list li {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 10px 14px;
+    font-size: 12px;
+    transition: border-color 0.15s;
+  }
+  .queries-list li:hover {
+    border-color: var(--enter-yellow);
+  }
+  .queries-list li code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12px;
+    color: var(--color-text-primary);
+    word-break: break-all;
+    background: none;
+    padding: 0;
+  }
+
+  /* Mensagem de fechamento */
+  .closing-message {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--enter-yellow-bg);
+    border: 1px solid var(--enter-yellow-soft);
+    border-radius: var(--border-radius-lg);
+    max-width: 680px;
+  }
+  .closing-message p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  /* CTA "Próxima vaga" — botão sutil dentro de cada vaga, leva para a próxima */
+  .next-vaga-cta {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border-tertiary);
+  }
+  .next-vaga-cta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin: 0 0 10px;
+    font-weight: 500;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .next-vaga-cta-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-family: inherit;
+    text-align: left;
+    transition: all 0.15s ease;
+  }
+  .next-vaga-cta-btn:hover {
+    border-color: var(--enter-yellow);
+    background: var(--enter-yellow-bg);
+    transform: translateY(-1px);
+  }
+  .next-vaga-cta-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .next-vaga-cta-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+  .next-vaga-cta-sub {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+  .next-vaga-cta-arrow {
+    font-size: 18px;
+    color: var(--color-text-primary);
+    transition: transform 0.15s;
+    flex-shrink: 0;
+  }
+  .next-vaga-cta-btn:hover .next-vaga-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 720px) {
+    .nav-buttons { grid-template-columns: 1fr; }
+    .repo-list { grid-template-columns: 1fr; }
+    .step { padding-left: 48px; margin-left: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="enter-header">
+  <div class="enter-logo">
+    ENTER↵
+  </div>
+  <div class="enter-logo-icon"></div>
+</header>
+
+<div class="container">
+  <div class="header">
+    <p class="intro-eyebrow">Case técnico · Talent Acquisition</p>
+    <h1>Case técnico para Recruiting</h1>
+    <p class="author-line"><strong>Nathalie Uram</strong> · Abril de 2026</p>
+    <p class="subtitle">O case foi organizado em duas partes: <strong>01.</strong> a entrega principal, que inclui os 27 perfis selecionados e as 9 mensagens de abordagem; <strong>02.</strong> a metodologia que construí para que entendam minha forma de pensar e como criei o processo de hunting para chegar nos candidatos.</p>
+  </div>
+
+  <!-- 2 BOTÕES PRINCIPAIS -->
+  <div class="nav-buttons">
+    <button class="nav-btn" data-tab="perfis">
+      <p class="nav-btn-num">01</p>
+      <p class="nav-btn-title">Perfis selecionados e mensagens<span class="nav-btn-arrow">→</span></p>
+      <p class="nav-btn-sub">A entrega principal: 27 perfis classificados em Engineering, Client Founder e Legal Strategy, e 9 mensagens de abordagem.</p>
+    </button>
+    <button class="nav-btn" data-tab="metodo">
+      <p class="nav-btn-num">02</p>
+      <p class="nav-btn-title">Metodologia aplicada<span class="nav-btn-arrow">→</span></p>
+      <p class="nav-btn-sub">A linha de raciocínio que segui — passo a passo, com prompts, mapa mental e materiais usados em cada etapa.</p>
+    </button>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- PAINEL 01 — PERFIS                                            -->
+  <!-- ============================================================ -->
+  <div class="panel" data-panel="perfis">
+
+    <div class="panel-intro">
+      <p class="panel-eyebrow">01 · A entrega principal</p>
+      <h2 class="panel-title">27 perfis e 9 mensagens</h2>
+      <p class="panel-lead">Use o seletor abaixo para alternar entre <strong>Engineering</strong>, <strong>Client Founder</strong>, <strong>Legal Strategy</strong> ou abrir a <strong>Visão geral</strong> com todos os candidatos e sugestões de mensagens em uma tabela única. Em cada vaga, descrevo as <em>Premissas usadas na classificação</em> para que vocês possam entender os critérios usados.</p>
+    </div>
+
+  <div class="vaga-tabs-wrapper">
+    <div class="vaga-tabs-label">📍 Você está navegando em</div>
+    <div class="vaga-tabs" role="tablist">
+      <button class="vaga-tab active" data-vaga="engineering">Engineering</button>
+      <button class="vaga-tab" data-vaga="client">Client Founder</button>
+      <button class="vaga-tab" data-vaga="legal">Legal Strategy</button>
+      <button class="vaga-tab" data-vaga="overview">📋 Visão geral da entrega</button>
+    </div>
+    <p class="vaga-current-indicator">SELEÇÃO ATUAL → <strong id="vaga-current-label">Engineering</strong></p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VAGA: ENGINEERING                                             -->
+  <!-- ============================================================ -->
+  <div class="vaga-pane active" id="pane-engineering">
+
+    <details class="premissas">
+      <summary>Premissas usadas na classificação para selecionar os 9 candidatos solicitados</summary>
+      <div class="premissas-body">
+
+        <h4 style="margin: 14px 0 6px; font-size: 14px; font-weight: 600;">1. O que a vaga pediu</h4>
+        <p style="margin: 0 0 4px; font-size: 13px;">Estou buscando um(a) engenheiro(a) backend sênior, IC, com 6+ anos de experiência hands-on em código. Stack não é o ponto central. O que importa é autonomia, senioridade e capacidade de construir sistemas em escala.</p>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">2. Como defini Rockstar</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">O padrão que mais apareceu foi profundidade técnica real ao longo do tempo, combinada com contexto de empresas exigentes.</p>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Base</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>6+ anos como IC escrevendo código de forma consistente</li>
+          <li>Passagem por pelo menos uma empresa de tech muito forte (Stripe, Brex, Palantir, Google, Nubank, iFood, VTEX e similares)</li>
+          <li>Formação forte como proxy inicial (POLI-USP, ITA, federais técnicas ou universidades internacionais relevantes)</li>
+          <li>Trajetória majoritariamente como IC, sem desvio relevante para gestão</li>
+        </ul>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Diferenciais</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Experiência internacional</li>
+          <li>GitHub ativo</li>
+          <li>Founding team ou exposição a ambientes de alta intensidade</li>
+          <li>Stack moderna</li>
+        </ul>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">3. Como defini Falso-Positivo</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">Perfis que parecem fortes no papel, mas não sustentam quando olho profundidade técnica real como IC.</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Senioridade no título, mas sem 6+ anos efetivos como IC</li>
+          <li>Parte relevante da carreira em gestão</li>
+          <li>Forte tecnicamente, mas com foco principal em frontend</li>
+          <li>Marca forte no CV, mas atuação real mais próxima de negócio ou liderança</li>
+          <li>Boa formação e uma empresa forte, mas trajetória diluída com experiências pouco técnicas</li>
+        </ul>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">4. Como defini Não-encaixa</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">Aqui avalio fit com a vaga, não qualidade do profissional.</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Menos de 3 anos de experiência</li>
+          <li>Sem formação ou empresa de tech relevante</li>
+          <li>Background em consultorias de TI tradicionais (IBM Services, Wipro e similares)</li>
+          <li>Job-hopping em empresas pequenas sem contexto técnico forte</li>
+          <li>5+ anos sem evolução clara para Senior como IC</li>
+        </ul>
+
+        <p class="premissa-quote">"Aqui o erro mais comum é confundir marca forte com profundidade real de engenharia."</p>
+      </div>
+    </details>
+
+    <div class="stats-block">
+      <div class="stats-headline">
+        <div>
+          <div class="stats-headline-big"><span id="eng-stat-total">19</span> candidatos finais avaliados para os <strong>9 perfis selecionados</strong> da tarefa</div>
+          <div class="stats-headline-detail">A entrega oficial do case são os 3 finalistas em cada categoria (3 Rockstars + 3 Falso-positivos + 3 Não-encaixa). Mais perfis foram avaliados como aderentes em cada categoria — listo todos abaixo para registro, mas escolhi os 3 finalistas em cada uma usando a metodologia descrita acima.</div>
+        </div>
+      </div>
+      <div class="stats-breakdown">
+        <div class="stat-mini rock">
+          <p class="stat-mini-label">Rockstars</p>
+          <p class="stat-mini-value"><span id="eng-stat-rock">7</span> avaliados</p>
+        </div>
+        <div class="stat-mini fp">
+          <p class="stat-mini-label">Falso-positivos</p>
+          <p class="stat-mini-value"><span id="eng-stat-fp">9</span> avaliados</p>
+        </div>
+        <div class="stat-mini naoencaixa">
+          <p class="stat-mini-label">Não encaixa</p>
+          <p class="stat-mini-value"><span id="eng-stat-ruim">3</span> avaliados</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-controls">
+      <button class="filter-btn active" data-vaga-scope="engineering" data-filter="all">Todos</button>
+      <button class="filter-btn" data-vaga-scope="engineering" data-filter="rockstar">Rockstar</button>
+      <button class="filter-btn" data-vaga-scope="engineering" data-filter="fp">Falso-positivo</button>
+      <button class="filter-btn" data-vaga-scope="engineering" data-filter="ruim">Não encaixa</button>
+    </div>
+
+    <div class="notes-help">
+      <p style="margin: 0 0 6px;"><strong>Como ler os cards:</strong></p>
+      <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
+        <li><strong>Nota:</strong> é dentro da categoria. Um falso-positivo 9 é o melhor da categoria FP, não um quase-Rockstar.</li>
+        <li><strong>Anos:</strong> "[X]a IC" = anos como Individual Contributor (técnico, sem gestão); "[X]a" sozinho = anos totais de carreira.</li>
+        <li><strong>Tag 🤝 Ponte pessoal:</strong> candidato com relacionamento ou indicação por alguém de confiança.</li>
+      </ul>
+    </div>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">🚀</span> Rockstars absolutos</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Os 3 perfis abaixo são engenheiros backend fortes, com 6+ anos de experiência hands-on em código, passagem por empresas de tecnologia muito fortes e faculdade de ponta. São os perfis que cumprem todos os critérios obrigatórios da vaga.</p>
+      <div class="dash-grid" id="eng-part1-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">⚠️</span> Falso-positivos</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Perfis que recrutador inexperiente classificaria como Rockstar pela marca (Brex, OpenAI, Stanford, POLI-USP), mas que falham num critério importante: ou senioridade insuficiente disfarçada de marca brilhante, ou metade da carreira em cargos de gestão de pessoas, ou histórico que dilui o tempo IC real.</p>
+      <p class="intro-text" style="margin-top: 4px;"><strong>Vale guardar.</strong> Esses candidatos são fortes em outras dimensões e podem virar Rockstar com o tempo (recém-promovidos, em transição de gestão para IC, ou com 1-2 anos a mais de senioridade). Recomendo manter o pool e revisitar a cada 6 meses.</p>
+      <div class="dash-grid" id="eng-part2-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">👎</span> Perfis que não encaixam</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Perfis que falham em múltiplos critérios da vaga: senioridade muito abaixo dos 6 anos exigidos, faculdade fora da lista de ponta combinada com empresas não-tech relevantes, ou job-hopping sem nenhuma passagem por empresa top. Não significa que sejam ruins como engenheiros — significa que <em>para esta vaga e para este momento</em>, o fit não acontece.</p>
+      <div class="dash-grid" id="eng-part3-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">💬</span> Mensagens de abordagem</h2>
+        <span class="summary-count">(3 etapas: connect, InMail, follow-up)</span>
+      </summary>
+      <p class="intro-text" id="eng-part4-intro"></p>
+      <div class="messages-section" id="eng-messages-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">➕</span> Extra: lista com demais candidatos avaliados</h2>
+        <span class="summary-count">(10 perfis fora do top 3+3+3)</span>
+      </summary>
+      <p class="intro-text">Os candidatos abaixo não foram selecionados como finalistas, mas mantivemos tudo classificado e explicado caso o time queira revisitar e/ou acionar re-engajamento futuro. Assim fica tudo organizado em um só lugar.</p>
+      <div class="others-list" id="eng-others-area"></div>
+    </details>
+
+    <!-- Próxima vaga -->
+    <div class="next-vaga-cta">
+      <p class="next-vaga-cta-label">Próxima vaga</p>
+      <button class="next-vaga-cta-btn" data-next-vaga="client">
+        <span class="next-vaga-cta-text">
+          <span class="next-vaga-cta-title">Client Founder</span>
+          <span class="next-vaga-cta-sub">Veja os 9 candidatos selecionados e as mensagens de abordagem</span>
+        </span>
+        <span class="next-vaga-cta-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VAGA: CLIENT FOUNDER                                          -->
+  <!-- ============================================================ -->
+  <div class="vaga-pane" id="pane-client">
+
+    <details class="premissas">
+      <summary>Premissas usadas na classificação para selecionar os 9 candidatos solicitados</summary>
+      <div class="premissas-body">
+
+        <h4 style="margin: 14px 0 6px; font-size: 14px; font-weight: 600;">1. O que a vaga pediu</h4>
+        <p style="margin: 0 0 4px; font-size: 13px;">Perfis de Client Founder para o time de AI Deployment. É um papel híbrido, com foco em cliente, gestão de projetos e implementação de soluções de IA, mas com exigência real de base técnica em programação. Não é só estruturar, precisa executar.</p>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">2. Como defini Rockstar</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">Usei os perfis de referência como base e busquei o padrão comum entre eles: combinação de estruturação e execução.</p>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Base</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>5+ anos em papéis como Engagement Manager, Senior PM, Deployment, FDE ou founding team</li>
+          <li>Dois caminhos principais: (A) MBB com transição para produto/startup (B) 3+ anos em tech de ponta (Stripe, Palantir, OpenAI, Nubank, iFood e similares)</li>
+          <li>Formação forte como filtro inicial</li>
+        </ul>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Capacidade técnica (eliminatório)</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Evidência real de programação</li>
+          <li>Background em engenharia, CS ou DS</li>
+          <li>Discurso de AI sem execução não conta</li>
+        </ul>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Diferenciais</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Experiência internacional, founding team ou crescimento consistente de escopo</li>
+        </ul>
+        <p style="margin: 8px 0 8px; font-size: 12px; color: var(--color-text-secondary); font-style: italic;">Obs: não considerei obrigatório já ter feito AI Deployment, tendo como base os exemplos enviados de Rockstar da Enter.</p>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">3. Como defini Falso-Positivo</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">Perfis com bom pedigree, mas incompletos para a função. Em geral, falta estruturação ou execução.</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>MBB sem transição para produto/tech</li>
+          <li>Consultoria tier 2 com pouca exposição a produto</li>
+          <li>Engenheiro forte sem experiência com cliente</li>
+          <li>Migração recente de finanças para tech sem profundidade</li>
+          <li>Senioridade acima da vaga</li>
+        </ul>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">4. Como defini Não-encaixa</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">Avaliei fit com a vaga, não qualidade do profissional.</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Menos de 3 anos de experiência</li>
+          <li>Background em B2C/consumo sem exposição a tech ou consultoria</li>
+          <li>"AI Specialist" sem base técnica</li>
+          <li>Trajetória fragmentada ou fora de ambientes complexos</li>
+        </ul>
+      </div>
+    </details>
+
+    <div class="stats-block">
+      <div class="stats-headline">
+        <div>
+          <div class="stats-headline-big"><span id="cli-stat-total">23</span> candidatos finais avaliados para os <strong>9 perfis selecionados</strong> da tarefa</div>
+          <div class="stats-headline-detail">A entrega oficial do case são os 3 finalistas em cada categoria (3 Rockstars + 3 Falso-positivos + 3 Não-encaixa). Mais perfis foram avaliados como aderentes em cada categoria — listo todos abaixo para registro, mas escolhi os 3 finalistas em cada uma usando a metodologia descrita acima.</div>
+        </div>
+      </div>
+      <div class="stats-breakdown">
+        <div class="stat-mini rock">
+          <p class="stat-mini-label">Rockstars</p>
+          <p class="stat-mini-value"><span id="cli-stat-rock">8</span> avaliados</p>
+        </div>
+        <div class="stat-mini fp">
+          <p class="stat-mini-label">Falso-positivos</p>
+          <p class="stat-mini-value"><span id="cli-stat-fp">13</span> avaliados</p>
+        </div>
+        <div class="stat-mini naoencaixa">
+          <p class="stat-mini-label">Não encaixa</p>
+          <p class="stat-mini-value"><span id="cli-stat-ruim">3</span> avaliados</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-controls">
+      <button class="filter-btn active" data-vaga-scope="client" data-filter="all">Todos</button>
+      <button class="filter-btn" data-vaga-scope="client" data-filter="rockstar">Rockstar</button>
+      <button class="filter-btn" data-vaga-scope="client" data-filter="fp">Falso-positivo</button>
+      <button class="filter-btn" data-vaga-scope="client" data-filter="ruim">Não encaixa</button>
+    </div>
+
+    <div class="notes-help">
+      <p style="margin: 0 0 6px;"><strong>Como ler os cards:</strong></p>
+      <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
+        <li><strong>Nota:</strong> é dentro da categoria. Um falso-positivo 9 é o melhor da categoria FP, não um quase-Rockstar.</li>
+        <li><strong>Anos:</strong> "[X]a IC" = anos como Individual Contributor (técnico, sem gestão); "[X]a" sozinho = anos totais de carreira.</li>
+        <li><strong>Tag 🤝 Ponte pessoal:</strong> candidato com relacionamento ou indicação por alguém de confiança.</li>
+      </ul>
+    </div>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">🚀</span> Rockstars absolutos</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Os 3 perfis abaixo cumprem todos os critérios obrigatórios da vaga: 5+ anos de experiência sênior, combinação de pensamento estruturado (consultoria top-tier ou tech de ponta) com execução hands-on em produto/tech, faculdade de ponta, e <strong>conhecimento técnico sólido de programação</strong> — ponto explícito da descrição da vaga. A Enter já contratou Client Founders sem passagem direta por AI Deployment; o que importa é o conjunto de capacidades demonstrado no CV.</p>
+      <div class="dash-grid" id="cli-part1-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">⚠️</span> Falso-positivos</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Perfis que recrutador inexperiente classificaria como Rockstar pela marca brilhante (McKinsey, Bain, NYU, Tuck, "Forward Deployment" no título), mas que falham em pelo menos um dos critérios obrigatórios: ou só têm consultoria sem nenhuma transição para produto/tech; ou são engenheiros excelentes mas sem o lado de condução de cliente que o Client Founder exige; ou usaram um título recente para encobrir uma carreira em outro setor; ou estão acima do nível de senioridade que a vaga IC procura.</p>
+      <p class="intro-text" style="margin-top: 4px;"><strong>Vale guardar.</strong> Esses candidatos podem virar Rockstar com 1-2 anos a mais de transição ou um movimento bem feito para tech/produto. Recomendo manter o pool e revisitar a cada 6 meses.</p>
+      <div class="dash-grid" id="cli-part2-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">👎</span> Perfis que não encaixam</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Perfis que falham em múltiplos critérios obrigatórios: sem consultoria top-tier, sem tech de produto, &lt;3 anos de experiência, ou carreira em vendas B2C/setor não-tech. Não significa que sejam ruins como profissionais — significa que <em>para esta vaga e para este momento</em>, o fit não acontece.</p>
+      <div class="dash-grid" id="cli-part3-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">💬</span> Mensagens de abordagem</h2>
+        <span class="summary-count">(3 etapas: connect, InMail, follow-up)</span>
+      </summary>
+      <p class="intro-text" id="cli-part4-intro"></p>
+      <div class="messages-section" id="cli-messages-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">➕</span> Extra: lista com demais candidatos avaliados</h2>
+        <span class="summary-count">(perfis fora do top 3+3+3)</span>
+      </summary>
+      <p class="intro-text">Os candidatos abaixo não foram selecionados como finalistas, mas mantivemos tudo classificado e explicado caso o time queira revisitar e/ou acionar re-engajamento futuro. Assim fica tudo organizado em um só lugar.</p>
+      <div class="others-list" id="cli-others-area"></div>
+    </details>
+
+    <!-- Próxima vaga -->
+    <div class="next-vaga-cta">
+      <p class="next-vaga-cta-label">Próxima vaga</p>
+      <button class="next-vaga-cta-btn" data-next-vaga="legal">
+        <span class="next-vaga-cta-text">
+          <span class="next-vaga-cta-title">Legal Strategy</span>
+          <span class="next-vaga-cta-sub">Veja os 9 candidatos selecionados e as mensagens de abordagem</span>
+        </span>
+        <span class="next-vaga-cta-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VAGA: LEGAL STRATEGY                                          -->
+  <!-- ============================================================ -->
+  <div class="vaga-pane" id="pane-legal">
+
+    <details class="premissas">
+      <summary>Premissas usadas na classificação para selecionar os 9 candidatos solicitados</summary>
+      <div class="premissas-body">
+
+        <h4 style="margin: 14px 0 6px; font-size: 14px; font-weight: 600;">1. O que a vaga pediu</h4>
+        <p style="margin: 0 0 4px; font-size: 13px;">Legal Strategist no time de AI Deployment. O papel não é contencioso de massa puro. É construção de teses, playbooks e estratégia jurídica que alimenta sistemas de IA operando em escala. O candidato precisa pensar como advogado de disputa estratégica, na interface entre jurídico, produto e tecnologia.</p>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">2. Como defini Rockstar</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">O padrão dos perfis de referência é claro: pedigree forte em dispute resolution, com profundidade real na área.</p>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Base</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>2+ anos como advogado de fato (pós-OAB, sem contar estágio)</li>
+          <li>Área: Dispute Resolution amplo — litigation, arbitragem, contencioso estratégico ou empresarial. Construção, ambiental, societário-litigioso e arbitragem internacional contam</li>
+          <li>Trajetória em escritório de elite, boutique de elite em contencioso/arbitragem ou in-house tier-1 (Nubank, Mercado Livre, BTG, XP, iFood)</li>
+          <li>Faculdade de ponta na graduação OU faculdade qualquer + pós/LLM em escola de elite</li>
+        </ul>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Calibração por tempo</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>2-5 anos: pedigree precisa gritar (top-tier puro + faculdade de ponta + área de disputa)</li>
+          <li>5+ anos: mais flexibilidade no pedigree (boa empresa in-house também serve)</li>
+        </ul>
+        <p style="margin: 8px 0 4px; font-size: 13px; font-weight: 600;">Diferenciais</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Tech no CV (legaltech, fintech, big tech)</li>
+          <li>LLM internacional (Georgetown, NYU, Columbia, Harvard, Sorbonne, Vanderbilt)</li>
+          <li>Mestrado acadêmico em direito</li>
+          <li>Pontes/contatos pessoais</li>
+          <li>Experiência em moots (Vis Moot, Jessup, Mandela)</li>
+        </ul>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">3. Como defini Falso-Positivo</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">CV de marca brilhante, mas área errada. O logo top-tier não substitui prática de dispute.</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Top-tier mas em área diferente: M&amp;A, tributário, societário, mercado de capitais, infraestrutura consultiva</li>
+          <li>Compliance, privacidade, penal econômico — próximos, mas distintos</li>
+          <li>Legal Ops puro: gerencia processos, mas não conduz disputa</li>
+          <li>Trabalhista in-house em fintech tier-1 (ex.: Nubank Labor) — ambiente certo, área errada</li>
+        </ul>
+        <p style="margin: 8px 0 8px; font-size: 12px; color: var(--color-text-secondary); font-style: italic;">Obs: infra-litigation ou infra-arbitragem CONTAM como Rockstar. Só infra consultivo/M&amp;A puro é FP.</p>
+
+        <h4 style="margin: 16px 0 6px; font-size: 14px; font-weight: 600;">4. Como defini Não-encaixa</h4>
+        <p style="margin: 0 0 6px; font-size: 13px; color: var(--color-text-secondary);">Avaliei fit com a vaga, não qualidade do profissional.</p>
+        <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 13px;">
+          <li>Júnior com menos de 2 anos efetivos pós-OAB</li>
+          <li>Sócio sênior estabelecido / Director há mais de 1 ano (saída executiva)</li>
+          <li>Áreas pessoais/sociais: família, criminal, trabalhista sindical</li>
+          <li>Carreira pública: juiz, promotor, procurador</li>
+          <li>In-house em empresa tradicional fora de tech, sem cultura de disputa civil em volume</li>
+        </ul>
+      </div>
+    </details>
+
+    <div class="stats-block">
+      <div class="stats-headline">
+        <div>
+          <div class="stats-headline-big"><span id="leg-stat-total">22</span> candidatos finais avaliados para os <strong>9 perfis selecionados</strong> da tarefa</div>
+          <div class="stats-headline-detail">A entrega oficial do case são os 3 finalistas em cada categoria (3 Rockstars + 3 Falso-positivos + 3 Não-encaixa). Mais perfis foram avaliados como aderentes em cada categoria — listo todos abaixo para registro, mas escolhi os 3 finalistas em cada uma usando a metodologia descrita acima.</div>
+        </div>
+      </div>
+      <div class="stats-breakdown">
+        <div class="stat-mini rock">
+          <p class="stat-mini-label">Rockstars</p>
+          <p class="stat-mini-value"><span id="leg-stat-rock">14</span> avaliados</p>
+        </div>
+        <div class="stat-mini fp">
+          <p class="stat-mini-label">Falso-positivos</p>
+          <p class="stat-mini-value"><span id="leg-stat-fp">4</span> avaliados</p>
+        </div>
+        <div class="stat-mini naoencaixa">
+          <p class="stat-mini-label">Não encaixa</p>
+          <p class="stat-mini-value"><span id="leg-stat-ruim">4</span> avaliados</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-controls">
+      <button class="filter-btn active" data-vaga-scope="legal" data-filter="all">Todos</button>
+      <button class="filter-btn" data-vaga-scope="legal" data-filter="rockstar">Rockstar</button>
+      <button class="filter-btn" data-vaga-scope="legal" data-filter="fp">Falso-positivo</button>
+      <button class="filter-btn" data-vaga-scope="legal" data-filter="ruim">Não encaixa</button>
+    </div>
+
+    <div class="notes-help">
+      <p style="margin: 0 0 6px;"><strong>Como ler os cards:</strong></p>
+      <ul style="margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.6;">
+        <li><strong>Nota:</strong> é dentro da categoria. Um falso-positivo 9 é o melhor da categoria FP, não um quase-Rockstar.</li>
+        <li><strong>Anos:</strong> "[X]a IC" = anos como Individual Contributor (técnico, sem gestão); "[X]a" sozinho = anos totais de carreira.</li>
+        <li><strong>Tag 🤝 Ponte pessoal:</strong> candidato com relacionamento ou indicação por alguém de confiança.</li>
+      </ul>
+    </div>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">🚀</span> Rockstars absolutos</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Os 3 perfis abaixo cumprem todos os critérios obrigatórios da vaga: 5+ anos efetivos como advogado(a), passagem por escritório top-tier ou in-house tier-1, foco em contencioso civil ou arbitragem, e faculdade de ponta. Quando aplicável, considero também ponte pessoal como peso adicional — relacionamento ou indicação por alguém de confiança aumenta a probabilidade de conversão e reduz o risco da contratação.</p>
+      <div class="dash-grid" id="leg-part1-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">⚠️</span> Falso-positivos</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Perfis que recrutador inexperiente classificaria como Rockstar pela marca brilhante (Pinheiro Neto, Mattos Filho, Veirano, LL.M. internacional), mas que falham no critério mais importante: <strong>área errada</strong>. O top-tier do logo não substitui a prática de contencioso civil em volume.</p>
+      <p class="intro-text" style="margin-top: 4px;"><strong>Vale guardar.</strong> Esses candidatos podem ser fit para outras vagas (Legal Counsel para produto/M&A, Compliance, Privacidade), e algumas combinações tech-savvy podem virar Rockstar com transição. Recomendo manter o pool e revisitar.</p>
+      <div class="dash-grid" id="leg-part2-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">👎</span> Perfis que não encaixam</h2>
+        <span class="summary-count">(3 perfis)</span>
+      </summary>
+      <p class="intro-text">Perfis que falham em critérios estruturais da vaga: senioridade incompatível (júnior demais ou sócio fundador), área de prática totalmente desconexa, ou trajetória que indica direção de carreira oposta ao que a Enter precisa. Não significa que sejam ruins como profissionais — significa que <em>para esta vaga e para este momento</em>, o fit não acontece.</p>
+      <div class="dash-grid" id="leg-part3-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">💬</span> Mensagens de abordagem</h2>
+        <span class="summary-count">(3 etapas: connect, InMail, follow-up)</span>
+      </summary>
+      <p class="intro-text" id="leg-part4-intro"></p>
+      <div class="messages-section" id="leg-messages-area"></div>
+    </details>
+
+    <details class="parte">
+      <summary>
+        <h2><span class="cat-icon">➕</span> Extra: lista com demais candidatos avaliados</h2>
+        <span class="summary-count">(perfis fora do top 3+3+3)</span>
+      </summary>
+      <p class="intro-text">Os candidatos abaixo não foram selecionados como finalistas, mas mantivemos tudo classificado e explicado caso o time queira revisitar e/ou acionar re-engajamento futuro. Assim fica tudo organizado em um só lugar.</p>
+      <div class="others-list" id="leg-others-area"></div>
+    </details>
+
+    <!-- Próximo: Visão geral -->
+    <div class="next-vaga-cta">
+      <p class="next-vaga-cta-label">A seguir</p>
+      <button class="next-vaga-cta-btn" data-next-vaga="overview">
+        <span class="next-vaga-cta-text">
+          <span class="next-vaga-cta-title">📋 Visão geral da entrega</span>
+          <span class="next-vaga-cta-sub">Veja os 27 candidatos das 3 vagas em uma tabela única</span>
+        </span>
+        <span class="next-vaga-cta-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VAGA: VISÃO GERAL                                             -->
+  <!-- ============================================================ -->
+  <div class="vaga-pane" id="pane-overview">
+    <p class="intro-text" style="margin-bottom: 1.25rem;">Resumo dos 27 finalistas das 3 vagas (3 Rockstars + 3 Falso-positivos + 3 Não-encaixa por vaga). Para ver os detalhes de cada perfil — sinais ✓/✗, justificativa, anos de experiência, mensagens de abordagem — abra a aba da vaga correspondente.</p>
+    <div class="overview-table" id="overview-table-area"></div>
+
+    <!-- CTA para próximo bloco — só aparece no final da Visão geral -->
+    <div class="next-block-cta">
+      <p class="next-block-cta-label">Próximo bloco</p>
+      <button class="next-block-cta-btn" data-tab="metodo">
+        <span class="next-block-cta-num">02</span>
+        <span class="next-block-cta-text">
+          <span class="next-block-cta-title">Metodologia aplicada</span>
+          <span class="next-block-cta-sub">Veja a linha de raciocínio passo a passo</span>
+        </span>
+        <span class="next-block-cta-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  </div><!-- /.panel[data-panel="perfis"] -->
+
+  <!-- ============================================================ -->
+  <!-- PAINEL 02 — METODOLOGIA                                       -->
+  <!-- ============================================================ -->
+  <div class="panel" data-panel="metodo">
+
+    <div class="panel-intro">
+      <p class="panel-eyebrow">02 · Linha de raciocínio</p>
+      <h2 class="panel-title">Metodologia aplicada</h2>
+      <p class="panel-lead">Para estruturar o case e chegar na sugestão de candidatos e mensagens, organizei o raciocínio em <strong>7 etapas</strong>. A ideia foi tornar explícito como penso, priorizo e executo um processo de hunting.</p>
+      <p class="panel-lead">O objetivo não era só encontrar bons perfis, mas criar um método estruturado, replicável e consistente, que seja aplicável em qualquer vaga, sem depender de tentativa e erro.</p>
+      <p class="panel-lead">Esse modelo também é transferível: ao mudar o perfil-alvo ou a ferramenta (ex: usar LinkedIn Recruiter), o método permanece o mesmo. O que muda é apenas a forma de execução (via filtros, por exemplo).</p>
+      <p class="panel-lead">Como suporte, utilizei principalmente Claude (Chat e Co-work), ChatGPT para ajustes de texto, além de GSuite e Google X-Ray.</p>
+      <p class="panel-lead">Abaixo está o racional completo, com os materiais utilizados em cada etapa.</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- STEP 1 -->
+      <div class="step" data-step="1">
+        <p class="step-eyebrow">Passo 01 · Fundação</p>
+        <h3 class="step-title">Construção do Case Técnico Base</h3>
+        <div class="step-body">
+          <p>Antes de iniciar a busca, precisei estruturar uma base lógica sólida. As vagas são complexas e eu precisava começar com clareza de critérios.</p>
+          <p>Comecei com um <strong>rascunho manual</strong> para organizar o objetivo e a estrutura da entrega. A partir disso, desenvolvi um prompt detalhado dividido em quatro blocos:</p>
+          <ul class="step-list">
+            <li><strong>A:</strong> características das vagas</li>
+            <li><strong>B:</strong> empresas-alvo e estratégia de busca</li>
+            <li><strong>C:</strong> definição dos perfis</li>
+            <li><strong>D:</strong> abordagem de mensagens</li>
+          </ul>
+          <p>Esse prompt foi rodado no Claude (Co-work) e gerou o <strong>Case Técnico Base</strong>, um documento completo que passou a guiar todas as etapas seguintes.</p>
+        </div>
+        <div class="step-callout">
+          <strong>Por que esse passo é crítico:</strong> o Case Técnico Base define os critérios de avaliação (Rockstar, Falso-Positivo, Não-encaixa) e alimenta tanto a busca quanto a triagem e demais análises ao longo do processo.
+        </div>
+
+        <p class="toggle-row-label">Materiais deste passo:</p>
+        <div class="toggle-row">
+
+
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt usado</span>
+              <span class="artifact-hint">rodado no Claude/Cowork</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT — CASE TÉCNICO ENTER — TALENT ACQUISITION</span>
+<span class="meta"># Para: Nathalie</span>
+<span class="meta"># Cole junto com o PDF do case no Cowork</span>
+
+<span class="key">## PAPEL E CONTEXTO</span>
+Você é um Head Sênior de Talent Acquisition de uma empresa AI-native em rápido crescimento.
+Você tem profundo conhecimento prático de LinkedIn Recruiter, Sales Navigator, Boolean Search,
+Gem, SeekOut e HireEZ. Você já contratou para papéis que não existiam antes — onde não há
+benchmark claro de candidato ideal.
+
+Você sabe que a diferença entre um recrutador sênior e um júnior não está em encontrar mais
+candidatos. Está em saber o que descartar, por que descartar, e conseguir articular esse
+raciocínio com precisão.
+
+Você recebeu um case técnico da empresa ENTER. O case está anexado. Leia com atenção antes
+de começar qualquer coisa.
+
+<span class="key">## O QUE O CASE REALMENTE PEDE</span>
+Atenção: o case não pede só "como você encontra candidatos". Ele pede como você pensa.
+
+O funil de sourcing é o contexto e a estrutura — mas o peso real da entrega está na qualidade
+do raciocínio sobre cada perfil, especialmente nos perfis de discordância e péssimo fit.
+
+Um funil excelente com justificativas rasas reprova.
+Raciocínio profundo com funil simples passa.
+Tenha isso em mente em toda a entrega.
+
+<span class="key">## ESTRUTURA DA ENTREGA</span>
+A entrega tem 3 pontos:
+
+<span class="str">Ponto 1</span> — Linha de raciocínio geral (o funil)
+Apresentar a metodologia com storytelling claro. O funil aparece como estrutura — não como o
+centro da entrega.
+
+<span class="str">Ponto 2</span> — Entrega personalizada por vaga
+Para cada uma das três vagas (Engineering, AI Deployment, Legal Strategy):
+- Tese da vaga (rockstar / discordo / péssimo fit)
+- Regras de sim / pode enganar / descarta
+- Tipos de empresa-alvo
+- ICP detalhado
+- 3 candidatos finais por parte (Parte 1: rockstars · Parte 2: discordo · Parte 3: péssimo fit)
+- Justificativa de cada perfil
+
+<span class="str">Ponto 3</span> — Mensagens de abordagem
+Para um dos rockstars escolhidos por vaga, escrever as 3 mensagens do funil:
+(i) Conexão LinkedIn · (ii) InMail · (iii) Follow-up.
+
+<span class="key">## PRIMEIRA TAREFA OBRIGATÓRIA — ANTES DE QUALQUER BUSCA</span>
+Antes de sourcear UM candidato sequer, você vai:
+1. Ler o case anexado com atenção total
+2. Analisar os perfis de referência citados no case (banduk, guthyerrz, Breno Freitas,
+   Henrique Buldrini, etc.) — entender o padrão de DNA que a ENTER chama de "rockstar"
+3. Construir as TESES por vaga (rockstar / discordo / péssimo fit) e me apresentar para
+   validação
+4. Só depois que eu validar as teses, partir para sourcing
+
+Isso não é opcional. As teses são a fundação. Buscar candidatos antes de validar tese é
+desperdício.
+
+<span class="key">## METODOLOGIA — O FUNIL</span>
+A metodologia parte do universo amplo e afunila por camadas até chegar nos 3 perfis finais:
+
+<span class="str">Camada 1</span> — Universo amplo
+Definição do ICP da vaga com must-haves e nice-to-haves.
+Mapeamento dos tipos de empresa-alvo.
+
+<span class="str">Camada 2</span> — Filtro por tipo de empresa
+- AI Natives com até 4–5 anos de existência (foco EUA + Brasil)
+- Gigantes de tecnologia brasileiras e internacionais (Nubank, iFood, Stone, Google, Amazon, Meta)
+- Empresas fora do holofote: cybersecurity, pagamentos B2B, infraestrutura, healthtech
+- Empresas que passaram por Hyper Growth recente (últimos 3–5 anos)
+
+<span class="str">Camada 3</span> — Filtro por perfil dentro dessas empresas
+- Pessoas em cargos sênior durante o período de Hyper Growth da empresa
+- Brasileiros que trabalham em empresas fora do Brasil (premissa relevante para Engineering e AI
+  Deployment; para Legal Strategy o critério é especialidade em contencioso de massa, não
+  localização)
+
+<span class="str">Camada 4</span> — Regras sim / pode enganar / descarta por vaga
+
+<span class="str">Camada 5</span> — Análise humana dos finalistas
+Aqui o olho humano entra para definir os 3 perfis por vaga.
+
+<span class="key">## ORIENTAÇÕES POR VAGA</span>
+<span class="str">ENGINEERING</span>
+- IC sênior (não gestor), 6+ anos, foco backend mas generalista
+- Passagem por pelo menos uma empresa muito forte em tech
+- Faculdade de ponta (ITA, POLI-USP, POLI-UFRJ, École Polytechnique, Stanford, MIT, CMU, ETH)
+- Stack Python/AWS valorizado, Go é plus, GitHub ativo
+
+<span class="str">AI DEPLOYMENT (Client Founder)</span>
+- Perfil híbrido cliente + execução: relacionamento enterprise + implementação hands-on de IA
+- Trajetórias MBB (McKinsey/BCG/Bain) + tech, founding teams, MBA top global
+- 5+ anos, sinais de "co-founder", "founding", "engagement manager", "forward deployed"
+
+<span class="str">LEGAL STRATEGY</span>
+- Foco em CONTENCIOSO DE MASSA — NÃO M&A, societário, tributário, regulatório, compliance
+- 3+ anos efetivos como advogado (não estágio)
+- Top-tier brasileiro (Pinheiro Neto, Mattos Filho, Demarest, BMA, Lefosse, Machado Meyer)
+  ou in-house em fintech/big tech tier-1
+- Faculdade-alvo: USP/Largo SF, PUC-SP, FGV Direito SP/Rio, Mackenzie, Insper
+- LL.M. internacional (Harvard, Columbia, NYU, Stanford) é desejável, não obrigatório
+
+<span class="key">## TOM E ENTREGA</span>
+- Storytelling direto, sem enrolação
+- Justificativas profundas — explicar o porquê de cada classificação
+- Foco no raciocínio, não na quantidade
+- Entrega na voz da Nathalie (primeira pessoa, profissional, sem jargão de venda de TA)
+
+<span class="key">## COMECE AGORA</span>
+Passo 1: Confirmar que leu o case anexado.
+Passo 2: Analisar os perfis de referência citados no case e extrair o padrão de DNA do rockstar.
+Passo 3: Apresentar as teses por vaga para validação ANTES de sourcear qualquer candidato.</pre>
+            </div>
+          </details>
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">📄</span>
+              <span class="artifact-label">Case Técnico Base</span>
+              <span class="artifact-hint">documento gerado</span>
+            </summary>
+            <div class="artifact-body">
+              <p style="margin:0 0 8px; font-size:13px;">Documento completo disponível no Google Docs:</p>
+              <a href="https://docs.google.com/document/d/1W1FfhXgCpxujMY8lrVa2hP5Su12etxbadFLlpnUKEaY/edit?tab=t.0" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--color-background-secondary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);font-size:13px;color:var(--color-text-primary);text-decoration:none;font-weight:500;">
+                <span>📄</span> Acessar Case Técnico Base ↗
+              </a>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step" data-step="2">
+        <p class="step-eyebrow">Passo 02 · Premissa de hunting</p>
+        <h3 class="step-title">Definição da estratégia de busca (sem LinkedIn Recruiter)</h3>
+        <div class="step-body">
+          <p>Com a base pronta, defini o modelo de busca. Optei por não usar LinkedIn Recruiter, pois não tenho acesso e tomei como premissa não depender disso para o case.</p>
+          <p>Escolhi <strong>Google X-Ray combinado com IA</strong> para geração de queries, análise de perfis e triagem.</p>
+          <p>Essa decisão foi intencional. Construir o processo sem ferramenta paga direcionou a criação de um método replicável. Qualquer pessoa do time conseguiria executar seguindo os mesmos passos.</p>
+          <p>Com ferramentas pagas, o ganho é velocidade, melhores filtros e escala, mas a lógica base do processo não muda.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step" data-step="3">
+        <p class="step-eyebrow">Passo 03 · Geradores de busca</p>
+        <h3 class="step-title">Criação de prompts para geração de queries</h3>
+        <div class="step-body">
+          <p>A partir do Case Técnico Base, desenvolvi <strong>três prompts geradores</strong>, um por vaga, que transformam os critérios em queries prontas de Google X-Ray.</p>
+          <p>Durante os testes, identifiquei um ponto importante. <strong>Faculdade foi o filtro mais eficiente</strong> para qualificar resultados, mais do que empresa ou cargo.</p>
+          <p>Ajustei os prompts para garantir que todas as queries incluíssem pelo menos uma faculdade-alvo. Isso aumentou de forma relevante a qualidade dos perfis encontrados.</p>
+          <p>Estruturei os materiais em dois grupos: os <strong>prompts geradores</strong> (um por vaga) e o <strong>banco de queries prontas</strong> resultantes deles, organizado por vaga para facilitar reutilização e ajustes.</p>
+        </div>
+
+        <p class="toggle-row-label">Materiais deste passo:</p>
+        <div class="toggle-row">
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt 1A · Engineering</span>
+              <span class="artifact-hint">gerador de queries</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT 1A — Rockstar Engineering</span>
+
+Você vai me ajudar a encontrar candidatos no LinkedIn usando Google X-Ray search.
+
+<span class="key">CONTEXTO DA VAGA:</span>
+Empresa: Enter — startup brasileira de AI Deployment, investida pela Sequoia.
+Posição: Software Engineer / Backend Engineer (Rockstar — top 1% técnico).
+
+<span class="key">FILTRO PRINCIPAL — FACULDADE-ALVO (uso obrigatório em toda query):</span>
+- ITA, POLI-USP, POLI-UFRJ, École Polytechnique (Paris)
+- Stanford, MIT, Carnegie Mellon, ETH Zurich
+
+<span class="key">FILTRO SECUNDÁRIO — EMPRESAS-ALVO:</span>
+Wildlife, Revolut, Nubank, Ramp, Replit, Idwall, iFood, Google, Hotmart,
+Cursor, Supabase, Brex, Stripe, OpenAI, Palantir, Wiz, Microsoft, Meta, VTEX, RecargaPay.
+
+<span class="key">FILTROS COMPLEMENTARES:</span>
+- Cargo: <span class="str">"software engineer", "backend engineer", "principal engineer", "senior engineer", "staff engineer"</span> (apenas se IC, não manager)
+- Stack: Python, AWS, Go
+- Tempo: 6+ anos, 7+ anos
+- Sinais: GitHub, open source, "co-founder"
+
+<span class="key">REGRA CRÍTICA:</span>
+TODA query DEVE conter pelo menos uma faculdade-alvo da lista acima.
+Faculdade é o filtro mais discriminativo e prioritário.
+
+<span class="key">TAREFA:</span>
+Gere 15 queries Google X-Ray. Distribua:
+- 5 com faculdades brasileiras (ITA, POLI-USP, POLI-UFRJ) + empresas
+- 5 com faculdades internacionais (Stanford, MIT, Polytechnique, Carnegie Mellon) + empresas
+- 5 combinando faculdade brasileira + faculdade internacional (double degree) + empresas
+
+<span class="key">FORMATO DE SAÍDA:</span>
+Lista numerada de 1 a 15. Apenas as queries, prontas para colar no Google.</pre>
+            </div>
+          </details>
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt 1B · Client Founder</span>
+              <span class="artifact-hint">gerador de queries</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT 1B — Rockstar Client Founder</span>
+
+Você vai me ajudar a encontrar candidatos no LinkedIn usando Google X-Ray search.
+
+<span class="key">CONTEXTO DA VAGA:</span>
+Empresa: Enter — startup brasileira de AI Deployment, investida pela Sequoia.
+Posição: Client Founder no time de AI Deployment. Posição híbrida —
+relacionamento com cliente enterprise + implementação hands-on de fluxos de IA.
+
+<span class="key">FILTRO PRINCIPAL — FACULDADE-ALVO:</span>
+Brasileiras: POLI-USP, POLI-UFRJ, ITA, Insper, FGV
+Internacionais (graduação OU MBA): HBS, Stanford GSB, Wharton, INSEAD, MIT Sloan, Columbia
+
+<span class="key">FILTRO SECUNDÁRIO — EMPRESAS-ALVO:</span>
+MBB: McKinsey, Bain, BCG.
+Tech de ponta: Amazon, Wildlife, Nubank, iFood, Stripe, Ramp, Palantir, OpenAI,
+Anthropic, Slack, Figma, Notion.
+Startups: founding team, early-stage.
+
+<span class="key">FILTROS COMPLEMENTARES:</span>
+- Cargo: <span class="str">"Senior Product Manager", "Growth Manager", "Associate Consultant",
+  "Engagement Manager", "AI Deployer", "Forward Deployed"</span>
+- Tempo: 5+ anos
+- Sinais: <span class="str">"MBA", "co-founder", "founding"</span>
+
+<span class="key">REGRA CRÍTICA:</span>
+TODA query DEVE conter pelo menos uma faculdade-alvo. Perfil ideal: faculdade
+brasileira de elite + MBA top global, ou MBB + tech de ponta.
+
+<span class="key">TAREFA:</span>
+Gere 15 queries Google X-Ray. Distribua:
+- 5 com MBB + faculdade brasileira ou MBA top
+- 5 com tech de ponta + faculdade
+- 5 combinando MBB + tech (trajetória híbrida) + MBA top</pre>
+            </div>
+          </details>
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt 1C · Legal Strategy</span>
+              <span class="artifact-hint">gerador de queries</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT 1C — Rockstar Legal Strategy</span>
+
+Você vai me ajudar a encontrar candidatos no LinkedIn usando Google X-Ray search.
+
+<span class="key">CONTEXTO DA VAGA:</span>
+Empresa: Enter — startup brasileira de AI Deployment, investida pela Sequoia.
+Posição: Legal Strategist no time de AI Deployment. Foco em contencioso civil
+de alto volume, com proximidade a produto e tecnologia.
+
+<span class="key">FILTRO PRINCIPAL — FACULDADE-ALVO:</span>
+- USP (Largo São Francisco), PUC-SP, FGV Direito SP/Rio, Mackenzie
+Pós/LL.M. (opcional, valoriza): Harvard Law, Columbia Law, NYU Law, Stanford Law
+
+<span class="key">FILTRO SECUNDÁRIO — EMPRESAS-ALVO:</span>
+Top-tier: Pinheiro Neto, Mattos Filho, Demarest, Veirano, BMA, TozziniFreire,
+Lefosse, Machado Meyer.
+In-house tech: Nubank, Mercado Livre, iFood, Stone, Loft, QuintoAndar.
+
+<span class="key">FILTROS COMPLEMENTARES:</span>
+- Cargo: <span class="str">"Associate", "Advogado Sênior", "Advogado Pleno", "Legal Counsel"</span>
+- Área: <span class="str">"contencioso civil", "civil litigation", "litigation"</span>
+- Tempo: 3+ anos efetivos como advogado
+
+<span class="key">EVITAR (porque são Falso-Positivo):</span>
+M&amp;A, tributário, societário, Legal Ops, regulatório, compliance.
+
+<span class="key">TAREFA:</span>
+Gere 15 queries Google X-Ray. Distribua:
+- 6 com top-tier + faculdade brasileira + termo de contencioso
+- 4 com in-house tech + faculdade brasileira
+- 5 combinando top-tier + LL.M. internacional + contencioso</pre>
+            </div>
+          </details>
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">🔎</span>
+              <span class="artifact-label">Banco de queries prontas</span>
+              <span class="artifact-hint">para colar no Google</span>
+            </summary>
+            <div class="artifact-body">
+              <p style="margin: 0 0 14px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.55;">As queries abaixo são as que rodei no Google X-Ray, organizadas por vaga. Clique em qualquer uma para abrir o resultado direto no Google.</p>
+
+              <div class="queries-tabs" role="tablist">
+                <button class="queries-tab is-active" data-qtab="eng">Engineering</button>
+                <button class="queries-tab" data-qtab="cli">Client Founder</button>
+                <button class="queries-tab" data-qtab="leg">Legal Strategy</button>
+              </div>
+
+              <div class="queries-content is-active" data-qcontent="eng">
+                <pre style="background:#1a1a1a;color:#f5e7c8;border-radius:8px;padding:18px 20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;line-height:1.75;overflow-x:auto;border:1px solid #2a2a2a;margin:0;white-space:pre-wrap;"><span style="color:#8a8275;">ENGINEERING</span>
+
+<span style="color:#f5b041;">Q1</span>
+ site:linkedin.com/in/ "software engineer" ("Instituto Tecnológico de Aeronáutica" OR "ITA") (Google OR Meta OR Stripe OR Palantir OR OpenAI)
+
+<span style="color:#f5b041;">Q2</span>
+ site:linkedin.com/in/ "ITA" ("software engineer" OR "backend engineer") ("Nubank" OR "iFood" OR "Wildlife") Python
+
+<span style="color:#f5b041;">Q3</span>
+ site:linkedin.com/in/ "software engineer" ("Escola Politécnica" OR "Poli-USP" OR "double degree") (Stripe OR Brex OR Ramp OR Palantir OR Meta)
+
+<span style="color:#f5b041;">Q4</span>
+ site:linkedin.com/in/ "ITA" ("staff engineer" OR "principal engineer") ("Stripe" OR "Brex" OR "Ramp") "open source"
+
+<span style="color:#f5b041;">Q5</span>
+ site:linkedin.com/in/ "Stanford" ("software engineer" OR "staff engineer") ("OpenAI" OR "Cursor" OR "Replit") Python
+
+<span style="color:#f5b041;">Q6</span>
+ site:linkedin.com/in/ "Stanford" "Brazil" ("Stripe" OR "OpenAI" OR "Palantir") ("software engineer" OR "staff engineer")
+
+<span style="color:#f5b041;">Q7</span>
+ site:linkedin.com/in/ "ITA" ("software engineer" OR "staff engineer") ("Wildlife" OR "Nubank" OR "iFood") Python
+
+<span style="color:#f5b041;">Q8</span>
+ site:linkedin.com/in/ "POLI-USP" ("Senior Software Engineer" OR "Staff Backend Engineer") ("VTEX" OR "Brex" OR "Hotmart") AWS -Recruiter -Talent -intern
+
+<span style="color:#f5b041;">Q9</span>
+ site:linkedin.com/in "Forward Deployed Engineer" "Palantir"</pre>
+              </div>
+
+              <div class="queries-content" data-qcontent="cli">
+                <pre style="background:#1a1a1a;color:#f5e7c8;border-radius:8px;padding:18px 20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;line-height:1.75;overflow-x:auto;border:1px solid #2a2a2a;margin:0;white-space:pre-wrap;"><span style="color:#8a8275;">CLIENT FOUNDER</span>
+
+<span style="color:#f5b041;">Q1</span>
+ site:linkedin.com/in ("Bain" OR "McKinsey &amp; Company") "Palantir" ("Brazil" OR "São Paulo")
+
+<span style="color:#f5b041;">Q2</span>
+ site:linkedin.com/in "Forward Deployed Engineer" "Palantir"
+
+<span style="color:#f5b041;">Q3</span>
+ site:linkedin.com/in/ ("POLI-USP" OR "Escola Politécnica USP") ("McKinsey" OR "Bain" OR "BCG") "Engagement Manager" ("Python" OR "technical")
+
+<span style="color:#f5b041;">Q4</span>
+ site:linkedin.com/in/ "ITA" ("McKinsey" OR "Bain" OR "BCG") ("Associate Consultant" OR "Consultant") ("Python" OR "engineer")
+
+<span style="color:#f5b041;">Q5</span>
+ site:linkedin.com/in/ ("Harvard Business School" OR "Stanford GSB") "MBA" ("McKinsey" OR "Bain" OR "BCG") ("Palantir" OR "Stripe" OR "OpenAI") ("Python" OR "engineer")
+
+<span style="color:#f5b041;">Q6</span>
+ site:linkedin.com/in/ ("Insper" OR "FGV") ("McKinsey" OR "Bain" OR "BCG") ("Engagement Manager" OR "Consultant") ("Python" OR "Computer Science" OR "engineering")
+
+<span style="color:#f5b041;">Q7</span>
+ site:linkedin.com/in/ ("ITA" OR "POLI-UFRJ" OR "POLI-USP") ("OpenAI" OR "Anthropic" OR "Figma" OR "Notion") ("engineer" OR "technical") "Python"
+
+<span style="color:#f5b041;">Q8</span>
+ site:linkedin.com/in/ "ITA" ("McKinsey" OR "Bain" OR "BCG") ("Python" OR "engineer" OR "technical")
+
+<span style="color:#f5b041;">Q9</span>
+ site:linkedin.com/in/ ("Wharton" OR "MIT Sloan" OR "Columbia Business School") "MBA" ("BCG" OR "McKinsey" OR "Bain") ("Stripe" OR "Palantir" OR "Anthropic" OR "Figma") ("technical" OR "engineer")</pre>
+              </div>
+
+              <div class="queries-content" data-qcontent="leg">
+                <pre style="background:#1a1a1a;color:#f5e7c8;border-radius:8px;padding:18px 20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;line-height:1.75;overflow-x:auto;border:1px solid #2a2a2a;margin:0;white-space:pre-wrap;"><span style="color:#8a8275;">LEGAL STRATEGY</span>
+
+<span style="color:#8a8275;">— GRUPO A: Top-tier brasileiro + dispute resolution —</span>
+
+<span style="color:#f5b041;">Q1</span>
+ site:linkedin.com/in/ "Largo São Francisco" "Mattos Filho" ("contencioso" OR "litigation") "Advogado"
+
+<span style="color:#f5b041;">Q2</span>
+ site:linkedin.com/in/ "USP" ("Nubank" OR "Mercado Livre") "Legal Counsel" ("contencioso" OR "litigation")
+
+<span style="color:#f5b041;">Q3</span>
+ site:linkedin.com/in/ "USP" "Harvard Law" ("Pinheiro Neto" OR "Mattos Filho") "litigation"
+
+<span style="color:#f5b041;">Q4</span>
+ site:linkedin.com/in/ "USP" ("Pinheiro Neto" OR "Mattos Filho") ("contencioso cível" OR "contencioso de massa") ("volume" OR "alto volume")
+
+<span style="color:#f5b041;">Q5</span>
+ site:linkedin.com/in/ "Pinheiro Neto" ("contencioso" OR "litigation" OR "arbitragem" OR "dispute resolution") "advogado"
+
+<span style="color:#f5b041;">Q6</span>
+ site:linkedin.com/in/ "Mattos Filho" ("Contencioso e Arbitragem" OR "Litigation and Arbitration") ("associate" OR "advogado")
+
+<span style="color:#f5b041;">Q7</span>
+ site:linkedin.com/in/ "Machado Meyer" ("contencioso" OR "litigation" OR "arbitragem") ("advogado" OR "associate")
+
+<span style="color:#f5b041;">Q8</span>
+ site:linkedin.com/in/ ("Demarest" OR "Veirano" OR "BMA") ("dispute resolution" OR "arbitragem" OR "contencioso") "associate"
+
+<span style="color:#f5b041;">Q9</span>
+ site:linkedin.com/in/ ("Lefosse" OR "TozziniFreire" OR "Lobo de Rizzo") ("contencioso" OR "arbitragem") "advogado"
+
+<span style="color:#8a8275;">— GRUPO B: Boutiques de elite —</span>
+
+<span style="color:#f5b041;">Q10</span>
+ site:linkedin.com/in/ ("LUC Advogados" OR "L.O. Baptista" OR "Flavia Mange" OR "Licks Attorneys") ("arbitragem" OR "contencioso") "advogado"
+
+<span style="color:#f5b041;">Q11</span>
+ site:linkedin.com/in/ ("LDCM" OR "FCDG" OR "Yarshell" OR "Sergio Bermudes" OR "Warde") "contencioso" "advogado"
+
+<span style="color:#f5b041;">Q12</span>
+ site:linkedin.com/in/ ("Tepedino Berezowski" OR "Tomáz de Aquino") ("contencioso" OR "litigation")
+
+<span style="color:#8a8275;">— GRUPO C: Escritórios internacionais —</span>
+
+<span style="color:#f5b041;">Q13</span>
+ site:linkedin.com/in/ ("Three Crowns" OR "King &amp; Spalding" OR "Quinn Emanuel") "Brazil" ("associate" OR "trainee")
+
+<span style="color:#f5b041;">Q14</span>
+ site:linkedin.com/in/ ("Squire Patton Boggs" OR "Herbert Smith Freehills" OR "Freshfields") "Brazil" "arbitration"
+
+<span style="color:#8a8275;">— GRUPO D: In-house fintech/tech —</span>
+
+<span style="color:#f5b041;">Q15</span>
+ site:linkedin.com/in/ ("Nubank" OR "Mercado Livre" OR "Stone") "Legal Counsel" ("litigation" OR "contencioso" OR "dispute")
+
+<span style="color:#f5b041;">Q16</span>
+ site:linkedin.com/in/ ("BTG Pactual" OR "XP Inc" OR "Itaú BBA") "contencioso" ("Legal Counsel" OR "advogado pleno" OR "advogado sênior")
+
+<span style="color:#8a8275;">— GRUPO E: Faculdade + LLM + dispute —</span>
+
+<span style="color:#f5b041;">Q17</span>
+ site:linkedin.com/in/ ("USP" OR "PUC-SP" OR "PUC-Rio" OR "FGV") ("Georgetown" OR "NYU" OR "Columbia" OR "Sorbonne") "arbitration"
+
+<span style="color:#f5b041;">Q18</span>
+ site:linkedin.com/in/ ("Insper" OR "FGV") "LLM" "contencioso" ("Pinheiro Neto" OR "Mattos Filho" OR "Machado Meyer")
+
+<span style="color:#f5b041;">Q19</span>
+ site:linkedin.com/in/ "Mestrado" ("Direito Civil" OR "Direito Empresarial" OR "Direito e Tecnologia") "advogado" ("contencioso" OR "arbitragem")</pre>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step" data-step="4">
+        <p class="step-eyebrow">Passo 04 · Coleta com rastreabilidade</p>
+        <h3 class="step-title">Execução das buscas e mapeamento da origem</h3>
+        <div class="step-body">
+          <p>Rodei <strong>22 queries</strong> e, para cada perfil relevante encontrado, registrei qual busca o originou.</p>
+          <p>Isso permite que cada query seja reutilizada, ajustada ou transformada em filtros em ferramentas como LinkedIn Recruiter, por exemplo.</p>
+          <p>Quando as queries não eram suficientes, pedi ajustes e complementei com busca manual:</p>
+          <ul class="step-list">
+            <li>GitHub para engenharia</li>
+            <li>Sugestões do próprio LinkedIn, navegando entre perfis relacionados</li>
+            <li>Perfis conhecidos ou de referência</li>
+          </ul>
+          <p><strong>No total:</strong> ~100 perfis analisados, ~60 avançaram no funil.</p>
+        </div>
+
+        <p class="toggle-row-label">Materiais deste passo:</p>
+        <div class="toggle-row">
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">📋</span>
+              <span class="artifact-label">Queries × candidatos</span>
+              <span class="artifact-hint">rastreabilidade</span>
+            </summary>
+            <div class="artifact-body">
+<pre style="background:#1a1a1a;color:#f5e7c8;border-radius:8px;padding:18px 20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;line-height:1.75;overflow-x:auto;border:1px solid #2a2a2a;margin:0;white-space:pre-wrap;"><span style="color:#8a8275;">ENGINEER</span>
+
+<span style="color:#f5b041;">Query 1:</span> site:linkedin.com/in/ "software engineer" ("Instituto Tecnológico de Aeronáutica" OR "ITA") (Google OR Meta OR Stripe OR Palantir OR OpenAI)
+<a href="https://www.linkedin.com/in/izaque-sena-4a121120b/" target="_blank" style="color:#a8d99e;">linkedin.com/in/izaque-sena-4a121120b</a>
+<a href="https://www.linkedin.com/in/raphael-pinheiro-da-silva/?locale=pt" target="_blank" style="color:#a8d99e;">linkedin.com/in/raphael-pinheiro-da-silva</a>
+<a href="https://www.linkedin.com/in/miltontakamura/" target="_blank" style="color:#a8d99e;">linkedin.com/in/miltontakamura</a>
+
+<span style="color:#f5b041;">Query 2:</span> site:linkedin.com/in/ "ITA" ("software engineer" OR "backend engineer") ("Nubank" OR "iFood" OR "Wildlife") Python
+<a href="https://www.linkedin.com/in/emmanuel-da-silva-dias/" target="_blank" style="color:#a8d99e;">linkedin.com/in/emmanuel-da-silva-dias</a>
+<a href="https://www.linkedin.com/in/chicofariasneto/" target="_blank" style="color:#a8d99e;">linkedin.com/in/chicofariasneto</a>
+<a href="https://www.linkedin.com/in/gabriel-erzinger/" target="_blank" style="color:#a8d99e;">linkedin.com/in/gabriel-erzinger</a>
+<a href="https://www.linkedin.com/in/lfdlourenco/" target="_blank" style="color:#a8d99e;">linkedin.com/in/lfdlourenco</a>
+
+<span style="color:#f5b041;">Query 3:</span> site:linkedin.com/in/ "software engineer" ("Escola Politécnica" OR "Poli-USP" OR "double degree") (Stripe OR Brex OR Ramp OR Palantir OR Meta)
+<a href="https://www.linkedin.com/in/melogabriela/" target="_blank" style="color:#a8d99e;">linkedin.com/in/melogabriela</a>
+<a href="https://www.linkedin.com/in/marcosfnlr/" target="_blank" style="color:#a8d99e;">linkedin.com/in/marcosfnlr</a>
+
+<span style="color:#f5b041;">Query 4:</span> site:linkedin.com/in/ "ITA" ("staff engineer" OR "principal engineer") ("Stripe" OR "Brex" OR "Ramp") "open source"
+<a href="https://www.linkedin.com/in/fcnoronha/" target="_blank" style="color:#a8d99e;">linkedin.com/in/fcnoronha</a>
+<a href="https://www.linkedin.com/in/matheusmichels/" target="_blank" style="color:#a8d99e;">linkedin.com/in/matheusmichels</a>
+
+<span style="color:#f5b041;">Query 5:</span> site:linkedin.com/in/ "Stanford" ("software engineer" OR "staff engineer") ("OpenAI" OR "Cursor" OR "Replit") Python
+<a href="https://www.linkedin.com/in/uzairn/" target="_blank" style="color:#a8d99e;">linkedin.com/in/uzairn</a>
+
+<span style="color:#f5b041;">Query 6:</span> site:linkedin.com/in/ "Stanford" "Brazil" ("Stripe" OR "OpenAI" OR "Palantir") ("software engineer" OR "staff engineer")
+<a href="https://www.linkedin.com/in/pearson-henri-b4005563/" target="_blank" style="color:#a8d99e;">linkedin.com/in/pearson-henri-b4005563</a>
+<a href="https://www.linkedin.com/in/rodrigo-grabowsky/" target="_blank" style="color:#a8d99e;">linkedin.com/in/rodrigo-grabowsky</a>
+
+<span style="color:#f5b041;">Query 7:</span> site:linkedin.com/in/ "ITA" ("software engineer" OR "staff engineer") ("Wildlife" OR "Nubank" OR "iFood") Python
+<a href="https://www.linkedin.com/in/aline-dahleni-kraemer-733480108/" target="_blank" style="color:#a8d99e;">linkedin.com/in/aline-dahleni-kraemer-733480108</a>
+<a href="https://www.linkedin.com/in/rogerlucena/" target="_blank" style="color:#a8d99e;">linkedin.com/in/rogerlucena</a>
+
+<span style="color:#f5b041;">Query 8:</span> site:linkedin.com/in/ "POLI-USP" ("Senior Software Engineer" OR "Staff Backend Engineer") ("VTEX" OR "Brex" OR "Hotmart") AWS -Recruiter -Talent -intern
+<a href="https://www.linkedin.com/in/raphael-pinheiro-da-silva/" target="_blank" style="color:#a8d99e;">linkedin.com/in/raphael-pinheiro-da-silva</a>
+<a href="https://www.linkedin.com/in/marco-lanteri/" target="_blank" style="color:#a8d99e;">linkedin.com/in/marco-lanteri</a> <span style="color:#8a8275;">(gringo, despriorizado)</span>
+<a href="https://www.linkedin.com/in/breno-helfstein-moura-876885119/" target="_blank" style="color:#a8d99e;">linkedin.com/in/breno-helfstein-moura-876885119</a>
+
+<span style="color:#f5b041;">Query 9:</span> site:linkedin.com/in "Forward Deployed Engineer" "Palantir"
+<a href="https://www.linkedin.com/in/leonardo-borges-mafra-machado/" target="_blank" style="color:#a8d99e;">linkedin.com/in/leonardo-borges-mafra-machado</a> <span style="color:#8a8275;">(falso positivo)</span>
+<a href="https://www.linkedin.com/in/pedrobelfort/" target="_blank" style="color:#a8d99e;">linkedin.com/in/pedrobelfort</a> <span style="color:#8a8275;">(falso positivo)</span>
+<a href="https://www.linkedin.com/in/aleanyzewski/" target="_blank" style="color:#a8d99e;">linkedin.com/in/aleanyzewski</a> <span style="color:#8a8275;">(falso positivo)</span>
+<a href="https://www.linkedin.com/in/marcelo-buga/" target="_blank" style="color:#a8d99e;">linkedin.com/in/marcelo-buga</a> <span style="color:#8a8275;">(falso positivo)</span>
+<a href="https://www.linkedin.com/in/daniel-c-lin/" target="_blank" style="color:#a8d99e;">linkedin.com/in/daniel-c-lin</a> <span style="color:#8a8275;">(falso positivo — já é Staff)</span>
+
+<span style="color:#8a8275;">Sem query (busca manual):</span>
+<a href="https://www.linkedin.com/in/maria-yasmim-dev/" target="_blank" style="color:#a8d99e;">linkedin.com/in/maria-yasmim-dev</a>
+<a href="https://www.linkedin.com/in/andersonnunescunha/" target="_blank" style="color:#a8d99e;">linkedin.com/in/andersonnunescunha</a>
+
+
+<span style="color:#8a8275;">CLIENT FOUNDER</span>
+
+<span style="color:#f5b041;">Query 1:</span> site:linkedin.com/in ("Bain" OR "McKinsey &amp; Company") "Palantir" ("Brazil" OR "São Paulo")
+<a href="https://www.linkedin.com/in/marvingrossi/" target="_blank" style="color:#a8d99e;">linkedin.com/in/marvingrossi</a> <span style="color:#8a8275;">(Rockstar)</span>
+<a href="https://www.linkedin.com/in/thiagodossantospinheiro/" target="_blank" style="color:#a8d99e;">linkedin.com/in/thiagodossantospinheiro</a> <span style="color:#8a8275;">(Rockstar)</span>
+
+<span style="color:#f5b041;">Query 2:</span> site:linkedin.com/in "Forward Deployed Engineer" "Palantir"
+<a href="https://www.linkedin.com/in/jean-pro/" target="_blank" style="color:#a8d99e;">linkedin.com/in/jean-pro</a> <span style="color:#8a8275;">(Rockstar)</span>
+<a href="https://www.linkedin.com/in/victor-raposo/" target="_blank" style="color:#a8d99e;">linkedin.com/in/victor-raposo</a> <span style="color:#8a8275;">(falso positivo)</span>
+
+<span style="color:#f5b041;">Query 3:</span> site:linkedin.com/in/ ("POLI-USP" OR "Escola Politécnica USP") ("McKinsey" OR "Bain" OR "BCG") "Engagement Manager" ("Python" OR "technical")
+<a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-sampaio/" target="_blank" style="color:#a8d99e;">linkedin.com/in/joao-vitor-sampaio</a>
+
+<span style="color:#f5b041;">Query 4:</span> site:linkedin.com/in/ "ITA" ("McKinsey" OR "Bain" OR "BCG") ("Associate Consultant" OR "Consultant") ("Python" OR "engineer")
+<a href="https://www.linkedin.com/in/gabrielamas/" target="_blank" style="color:#a8d99e;">linkedin.com/in/gabrielamas</a>
+<a href="https://www.linkedin.com/in/lucas-hanusch/" target="_blank" style="color:#a8d99e;">linkedin.com/in/lucas-hanusch</a>
+<a href="https://www.linkedin.com/in/jpalcantara/" target="_blank" style="color:#a8d99e;">linkedin.com/in/jpalcantara</a>
+
+<span style="color:#f5b041;">Query 5:</span> site:linkedin.com/in/ ("Harvard Business School" OR "Stanford GSB") "MBA" ("McKinsey" OR "Bain" OR "BCG") ("Palantir" OR "Stripe" OR "OpenAI") ("Python" OR "engineer")
+<a href="https://www.linkedin.com/in/jpalcantara/" target="_blank" style="color:#a8d99e;">linkedin.com/in/jpalcantara</a>
+<a href="https://www.linkedin.com/in/ai-takahashi/" target="_blank" style="color:#a8d99e;">linkedin.com/in/ai-takahashi</a>
+<a href="https://www.linkedin.com/in/beatrizsalome/" target="_blank" style="color:#a8d99e;">linkedin.com/in/beatrizsalome</a>
+
+<span style="color:#f5b041;">Query 6:</span> site:linkedin.com/in/ ("Insper" OR "FGV") ("McKinsey" OR "Bain" OR "BCG") ("Engagement Manager" OR "Consultant") ("Python" OR "Computer Science" OR "engineering")
+<a href="https://www.linkedin.com/in/beatriz-moreira-/" target="_blank" style="color:#a8d99e;">linkedin.com/in/beatriz-moreira</a>
+<a href="https://www.linkedin.com/in/brunofrac/" target="_blank" style="color:#a8d99e;">linkedin.com/in/brunofrac</a>
+<a href="https://www.linkedin.com/in/pedro-nardino-lenzi/" target="_blank" style="color:#a8d99e;">linkedin.com/in/pedro-nardino-lenzi</a>
+<a href="https://www.linkedin.com/in/sarah-ca-nadaud/" target="_blank" style="color:#a8d99e;">linkedin.com/in/sarah-ca-nadaud</a>
+<a href="https://www.linkedin.com/in/mateus-pedrino-27ab74180/" target="_blank" style="color:#a8d99e;">linkedin.com/in/mateus-pedrino-27ab74180</a>
+<a href="https://www.linkedin.com/in/esdras-cavalcanti-wbt/" target="_blank" style="color:#a8d99e;">linkedin.com/in/esdras-cavalcanti-wbt</a>
+
+<span style="color:#f5b041;">Query 7:</span> site:linkedin.com/in/ ("ITA" OR "POLI-UFRJ" OR "POLI-USP") ("OpenAI" OR "Anthropic" OR "Figma" OR "Notion") ("engineer" OR "technical") "Python"
+<a href="https://www.linkedin.com/in/macedo-mvc/" target="_blank" style="color:#a8d99e;">linkedin.com/in/macedo-mvc</a> <span style="color:#8a8275;">(Ruim)</span>
+
+<span style="color:#f5b041;">Query 8:</span> site:linkedin.com/in/ "ITA" ("McKinsey" OR "Bain" OR "BCG") ("Python" OR "engineer" OR "technical")
+<a href="https://www.linkedin.com/in/erickgmatos/" target="_blank" style="color:#a8d99e;">linkedin.com/in/erickgmatos</a>
+
+<span style="color:#f5b041;">Query 9:</span> site:linkedin.com/in/ ("Wharton" OR "MIT Sloan" OR "Columbia Business School") "MBA" ("BCG" OR "McKinsey" OR "Bain") ("Stripe" OR "Palantir" OR "Anthropic" OR "Figma") ("technical" OR "engineer")
+<a href="https://www.linkedin.com/in/rannykjchoi/" target="_blank" style="color:#a8d99e;">linkedin.com/in/rannykjchoi</a> <span style="color:#8a8275;">(ruim para a vaga)</span>
+<a href="https://www.linkedin.com/in/danilofronha/" target="_blank" style="color:#a8d99e;">linkedin.com/in/danilofronha</a>
+
+<span style="color:#8a8275;">Sem query (busca manual):</span>
+<a href="https://www.linkedin.com/in/pedro-iguelka-137773186/" target="_blank" style="color:#a8d99e;">linkedin.com/in/pedro-iguelka-137773186</a> <span style="color:#8a8275;">(falso positivo — McKinsey)</span>
+<a href="https://www.linkedin.com/in/leonardosabo/" target="_blank" style="color:#a8d99e;">linkedin.com/in/leonardosabo</a> <span style="color:#8a8275;">(falso positivo — COMP)</span>
+<a href="https://www.linkedin.com/in/catharina-p-9a8786190/" target="_blank" style="color:#a8d99e;">linkedin.com/in/catharina-p-9a8786190</a> <span style="color:#8a8275;">(Ruim — COMP)</span>
+
+
+<span style="color:#8a8275;">LEGAL STRATEGY</span>
+
+<span style="color:#8a8275;">Sem query (busca manual):</span>
+<a href="https://www.linkedin.com/in/giovannalemosdeazevedo/" target="_blank" style="color:#a8d99e;">linkedin.com/in/giovannalemosdeazevedo</a>
+<a href="https://www.linkedin.com/in/mariana-dib-rivero-oliva-4957a7a3/" target="_blank" style="color:#a8d99e;">linkedin.com/in/mariana-dib-rivero-oliva-4957a7a3</a>
+<a href="https://www.linkedin.com/in/laura-freitas-2982b2196/" target="_blank" style="color:#a8d99e;">linkedin.com/in/laura-freitas-2982b2196</a>
+<a href="https://www.linkedin.com/in/maria-eduarda-lemgruber-925325a4/" target="_blank" style="color:#a8d99e;">linkedin.com/in/maria-eduarda-lemgruber-925325a4</a>
+
+<span style="color:#f5b041;">Query 1:</span> site:linkedin.com/in/ "Largo São Francisco" "Mattos Filho" ("contencioso" OR "litigation") "Advogado"
+<a href="https://www.linkedin.com/in/carlos-herculano-cubillas/" target="_blank" style="color:#a8d99e;">linkedin.com/in/carlos-herculano-cubillas</a>
+<a href="https://www.linkedin.com/in/luiz-fernando-levoto-a97442187/" target="_blank" style="color:#a8d99e;">linkedin.com/in/luiz-fernando-levoto-a97442187</a>
+<span style="color:#8a8275;">Observação: nenhum se encaixa</span>
+
+<span style="color:#f5b041;">Query 2:</span> site:linkedin.com/in/ "USP" ("Nubank" OR "Mercado Livre") "Legal Counsel" ("contencioso" OR "litigation")
+<a href="https://www.linkedin.com/in/danielle-vasconcellos-habib/" target="_blank" style="color:#a8d99e;">linkedin.com/in/danielle-vasconcellos-habib</a> <span style="color:#8a8275;">(perfil bom)</span>
+
+<span style="color:#f5b041;">Query 3:</span> site:linkedin.com/in/ "USP" "Harvard Law" ("Pinheiro Neto" OR "Mattos Filho") "litigation"
+<a href="https://www.linkedin.com/in/b%C3%A1rbara-braz/" target="_blank" style="color:#a8d99e;">linkedin.com/in/barbara-braz</a> <span style="color:#8a8275;">(boa)</span>
+
+<span style="color:#f5b041;">Query 4:</span> site:linkedin.com/in/ "USP" ("Pinheiro Neto" OR "Mattos Filho") ("contencioso cível" OR "contencioso de massa") ("volume" OR "alto volume")
+<a href="https://www.linkedin.com/in/rodrigo-igrejas-filgueiras-a1ab26102/" target="_blank" style="color:#a8d99e;">linkedin.com/in/rodrigo-igrejas-filgueiras-a1ab26102</a>
+<a href="https://www.linkedin.com/in/carla-cristina-da-silva-almeida-418a88150/" target="_blank" style="color:#a8d99e;">linkedin.com/in/carla-cristina-da-silva-almeida-418a88150</a></pre>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step" data-step="5">
+        <p class="step-eyebrow">Passo 05 · Triagem com IA</p>
+        <h3 class="step-title">Classificação estruturada dos perfis</h3>
+        <div class="step-body">
+          <p>Avaliar manualmente esse volume comprometeria tempo e consistência. Por isso, criei <strong>três prompts de triagem</strong>, um por vaga, baseados nas definições do Case Técnico Base, que concentra todas as exigências de cada vaga.</p>
+          <p>Para alimentar o processo, copiei manualmente os perfis do LinkedIn em um documento e depois colei no prompt para classificação.</p>
+          <p>Evitei automação aqui por eficiência, tanto em tempo quanto em custo de token.</p>
+          <p>Com isso, consegui gerar uma base estruturada com:</p>
+          <ul class="step-list">
+            <li>Classificação em Rockstar, Falso-Positivo ou Não-encaixa</li>
+            <li>Padrão consistente de análise</li>
+            <li>Direcionamento claro para o filtro final por vaga</li>
+          </ul>
+        </div>
+
+        <p class="toggle-row-label">Materiais deste passo:</p>
+        <div class="toggle-row">
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt 2A · Engineering</span>
+              <span class="artifact-hint">filtro de triagem</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT 2A — Triagem · Engineering</span>
+
+<span class="key">CONTEXTO:</span>
+Estou classificando candidatos para a Enter para a posição de Engineering.
+
+<span class="key">🟢 ROCKSTAR</span>
+- 6+ anos como contribuidor individual (NÃO gestor/manager)
+- Cargo IC: SWE, Backend Engineer, Principal/Senior/Staff (apenas se IC)
+- 2+ anos na mesma empresa em pelo menos uma passagem
+- Passagem por pelo menos UMA empresa muito forte em tech
+- Faculdade de ponta (ITA, POLI-USP, POLI-UFRJ, École Polytechnique, Stanford,
+  MIT, Carnegie Mellon, ETH Zurich, ou CS em universidade reconhecida)
+Desejáveis: Python/AWS, GitHub ativo, internacional, double degree, co-founder.
+
+<span class="key">🟡 FALSO-POSITIVO</span>
+- 12+ anos em cargos de gestão (EM, Director, Staff manager)
+- Fullstack genérico sem profundidade
+- 5+ skills mas só empresas desconhecidas
+- CV de marca em cargo de gestão
+- Sem GitHub, sem presença pública
+- Faculdade de prestígio em curso NÃO técnico
+
+<span class="key">🔴 NÃO-ENCAIXA</span>
+- &lt;3 anos total
+- 15+ anos em empresas grandes não-tech
+- Stack base apenas, sem cloud moderno
+- Job-hopper: 3+ empresas com &lt;12 meses cada
+- CTO/VP de empresa não-tech
+
+<span class="key">TAREFA:</span>
+Para cada perfil colado abaixo:
+1. Classifique em ROCKSTAR / FALSO-POSITIVO / NÃO-ENCAIXA
+2. Nota 0-10 dentro da categoria
+3. Liste sinais ✓ e ✗
+4. Justifique em 1-2 linhas
+5. Anote a query que trouxe o perfil
+
+<span class="key">FORMATO DE SAÍDA:</span>
+Tabela markdown: | Nome | Link | Classificação | Nota | Sinais ✓ | Sinais ✗ | Justificativa | Query |
+Após a tabela, agrupe por classificação (top 3 de cada).
+
+<span class="key">PERFIS COLETADOS:</span>
+[colar cada perfil precedido da query que o encontrou]</pre>
+            </div>
+          </details>
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt 2B · Client Founder</span>
+              <span class="artifact-hint">filtro de triagem</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT 2B — Triagem · Client Founder</span>
+
+<span class="key">CONTEXTO:</span>
+Posição: Client Founder no time de AI Deployment — relacionamento com cliente
+enterprise + implementação hands-on de fluxos de IA.
+
+<span class="key">🟢 ROCKSTAR</span>
+- 5+ anos de experiência total
+- Cargo: AI Deployer, Senior PM, Growth Manager, Engagement Manager (MBB),
+  Founding team em tech, Forward Deployed
+- Pensamento estruturado E execução hands-on (ambos)
+- Faculdade de ponta OU MBA top global
+Pelo menos UM dos dois é obrigatório:
+A) MBB + transição para produto/startup
+B) 3+ anos em tech de ponta (Stripe, Palantir, OpenAI, Anthropic, Slack,
+   Figma, Notion, Wildlife, Nubank, iFood)
+Desejáveis: internacional, programação sólida, co-founder.
+
+<span class="key">🟡 FALSO-POSITIVO</span>
+- Consultor MBB que SÓ tem consultoria no CV
+- Consultor menor (Accenture, Deloitte, EY, KPMG, PwC)
+- Diretor Inovação/Transformação em empresa tradicional
+- CSM/AE em SaaS (sabe vender, não construir)
+- Forward Deployed Engineer SEM relacionamento
+- MBA top sem profundidade técnica posterior
+
+<span class="key">🔴 NÃO-ENCAIXA</span>
+- &lt;3 anos total
+- Sem programação alguma
+- PM sem histórico em tech
+- AE/CS em empresas fora de tech
+- "AI Specialist" formado por cursos rápidos
+- Job-hopper em empresas pequenas
+
+<span class="key">TAREFA E FORMATO:</span>
+Mesma estrutura do 2A. Tabela markdown + agrupamento.
+
+<span class="key">PERFIS COLETADOS:</span>
+[colar cada perfil precedido da query]</pre>
+            </div>
+          </details>
+
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">⚙️</span>
+              <span class="artifact-label">Prompt 2C · Legal Strategy</span>
+              <span class="artifact-hint">filtro de triagem</span>
+            </summary>
+            <div class="artifact-body">
+<pre><span class="meta"># PROMPT 2C — Filtro de Candidatos | Legal Strategy | Enter</span>
+
+<span class="key">CONTEXTO DA VAGA</span>
+Empresa: Enter — startup brasileira de AI Deployment, investida pela Sequoia
+Capital e Founders Fund.
+
+Posição: Legal Strategist no time de AI Deployment.
+
+O Legal Strategist estrutura a inteligência jurídica que sustenta as defesas
+da Enter em escala — teses, playbooks, evolução contínua das defesas. Atua
+na interface entre jurídico, produto e tecnologia. Constrói tese, conduz
+disputa, e colabora com produto/engenharia para implementar soluções em escala.
+
+Importante: a vaga NÃO é contencioso de massa puro. É construção de teses,
+playbooks e estratégia jurídica para alimentar sistemas de IA que operam em
+escala. O candidato precisa saber pensar como advogado de disputa estratégica
+— não precisa ter rodado volume de banco/varejo antes.
+
+<span class="key">🟢 ROCKSTAR — Obrigatórios</span>
+- 2+ anos como advogado de fato (pós-OAB, sem contar estágio/trainee)
+- Área: Dispute Resolution (litigation, arbitragem, contencioso estratégico,
+  contencioso empresarial) — qualquer subnicho serve. Construção, ambiental,
+  societário-litigioso, cível estratégico, arbitragem internacional, tudo conta.
+- Trajetória em escritório de elite OU boutique de elite reconhecida em
+  contencioso/arbitragem
+- Faculdade de ponta na graduação OU faculdade qualquer + pós/LLM em escola
+  de elite que compense
+
+<span class="key">Calibração por tempo:</span>
+- 2-5 anos: pedigree precisa gritar (top-tier puro + faculdade de ponta +
+  área de disputa)
+- 5+ anos: mais flexibilidade no pedigree (boa empresa in-house também serve)
+
+<span class="key">Cargos aceitos:</span>
+- Associate, Senior Associate, Mid-Level Associate em top-tier
+- Advogado Pleno ou Sênior (não Director, não Sócio)
+- Legal Counsel em fintech/tech tier-1
+
+<span class="key">Desejáveis (somam, não eliminam):</span>
+- Tech no CV (legaltech, fintech, big tech) — bom ter, NÃO obrigatório
+- LLM internacional (Georgetown, NYU, Columbia, Harvard, Sorbonne, Vanderbilt)
+- Mestrado acadêmico em direito (FGV, USP, PUC-Rio, PUC-SP)
+- Pontes/contatos pessoais
+- Experiência em moots (Vis Moot, Jessup, Mandela)
+
+<span class="key">ESCRITÓRIOS-ALVO</span>
+Top-tier brasileiros: Pinheiro Neto, Mattos Filho, Demarest, Veirano, BMA,
+TozziniFreire, Lefosse, Machado Meyer, Lobo de Rizzo, Tepedino Berezowski Poppa.
+Boutiques de elite: LUC, L.O. Baptista, Licks, Flavia Mange, LDCM, FCDG,
+Yarshell, Sergio Bermudes, Warde, Tomáz de Aquino.
+Internacionais: Three Crowns, King &amp; Spalding, Squire Patton Boggs,
+Herbert Smith, Quinn Emanuel, Freshfields.
+In-house tech/fintech tier-1: Nubank, Mercado Livre, iFood, Stone, Loft,
+QuintoAndar, BTG, XP, Itaú BBA.
+
+<span class="key">FACULDADES</span>
+De ponta (graduação): USP Largo SF, PUC-SP, PUC-Rio, FGV Direito SP/Rio,
+Mackenzie, Insper, UERJ.
+Aceitas se compensadas por pós forte: PUC Minas, UFMG, UnB, UFRJ.
+LLM internacional aceitos: Georgetown, NYU, Columbia, Harvard, Stanford,
+Vanderbilt, Sorbonne, Lyon, Hamburg, Esade.
+
+<span class="key">🟡 FALSO-POSITIVO (logo certo, área errada)</span>
+CV de marca brilhante, mas área errada:
+- Top-tier mas em área diferente: M&amp;A, tributário, societário,
+  mercado de capitais, infraestrutura/projetos puros (atenção:
+  infra-litigation/arbitragem CONTAM como Rockstar)
+- Compliance, privacidade, penal econômico — próximos, mas distintos
+- Legal Ops puro: gerencia processos, mas não conduz disputa
+- Trabalhista in-house em fintech tier-1 = FP (área errada, ambiente certo)
+
+<span class="key">🔴 NÃO ENCAIXA</span>
+- Júnior com menos de 2 anos efetivos
+- Sócio sênior estabelecido / Director há mais de 1 ano /
+  Líder Jurídico há mais de 1 ano (saída executiva)
+- Áreas pessoais/sociais: família, criminal, trabalhista sindical
+- Carreira pública: juiz, promotor, procurador
+- In-house em empresa tradicional fora de tech, sem cultura de disputa
+
+<span class="key">OBSERVAÇÃO METODOLÓGICA</span>
+Trabalhista in-house em fintech tier-1 (ex.: Nubank Labor Counsel) é
+FALSO-POSITIVO, não NÃO ENCAIXA — área é trabalhista, mas o ambiente é certo.
+Compliance/penal econômico em PN/MF é FP. M&amp;A em PN/MF é FP. Mas
+litigation/arbitration em PN/MF é Rockstar — mesmo se o sub-nicho for
+construção, ambiental ou societário-contencioso.
+
+<span class="key">TAREFA</span>
+Para cada perfil, retorne:
+| Nome | Link | Classificação | Nota | Anos como adv | Sinais ✓ | Sinais ✗ | Justificativa |
+
+Após a tabela, agrupe top 3 ROCKSTAR, top 3 FALSO-POSITIVO, top 3 NÃO ENCAIXA
+com 1-2 linhas de justificativa cada.</pre>
+            </div>
+          </details>
+
+
+
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="step" data-step="6">
+        <p class="step-eyebrow">Passo 06 · Curadoria humana</p>
+        <h3 class="step-title">Decisão final perfil a perfil</h3>
+        <div class="step-body">
+          <p>A IA organiza e prioriza, mas a decisão final precisa ser humana.</p>
+          <p>Revisei individualmente os principais finalistas:</p>
+          <ul class="step-list">
+            <li>Validei aderência real ao contexto da vaga</li>
+            <li>Corrigi classificações quando necessário</li>
+            <li>Refinei as justificativas</li>
+          </ul>
+          <p>Com isso, consegui aplicar o mesmo processo para todas as vagas, chegando nos candidatos finais com consistência.</p>
+          <p>Usei IA de forma estruturada principalmente no topo do funil, na geração, volume e organização. Mantive o julgamento humano na etapa crítica, onde contexto, nuance e tomada de decisão fazem diferença.</p>
+        </div>
+
+        <p class="toggle-row-label">Material deste passo:</p>
+        <div class="toggle-row">
+          <details class="artifact-toggle">
+            <summary>
+              <span class="artifact-icon">✓</span>
+              <span class="artifact-label">27 perfis finalistas</span>
+              <span class="artifact-hint">resultado da curadoria</span>
+            </summary>
+            <div class="artifact-body">
+              <p style="margin: 0 0 12px;">A entrega final está no <strong>Bloco 01 — Perfis selecionados e mensagens</strong>. Cada um dos 27 perfis passou por leitura humana e tem justificativa individual no dashboard.</p>
+              <button class="jump-btn" onclick="document.querySelector('[data-tab=\'perfis\']').click(); setTimeout(function(){ var tab = document.querySelector('.vaga-tab[data-vaga=\'overview\']'); if(tab) tab.click(); }, 400); return false;">
+                Ver lista geral de candidatos →
+              </button>
+            </div>
+          </details>
+        </div>
+      </div>
+
+
+        <div class="closing-message" style="margin-top:48px;">
+          <p>🚀 Espero que esteja acima do esperado. Muito obrigada pela oportunidade! ↵</p>
+        </div>
+
+    </div><!-- /.timeline -->
+
+
+    </div><!-- /.panel[data-panel="metodo"] -->
+
+</div>
+
+<script>
+/* ====================================================================
+   DADOS — ENGINEERING (do arquivo original)
+   ==================================================================== */
+const part4IntroEng = `Selecionei <strong>Gabriela Melo</strong>: Rockstar de Engineering com 8.5 anos como IC backend (POLI-USP graduação + mestrado, Senior SWE na Brex, antes Belvo e Legiti como time fundador). Stack alinhada com a Enter (Python, AWS) e em SP. A aquisição Brex+Capital One é um gancho natural para abordagem agora.`;
+
+const candidatesEng = [
+  // ============== PARTE 1: 3 ROCKSTARS ==============
+  { name: "Breno Helfstein Moura", company: "Forward Deployed Tech Lead @ Palantir / Head of Hospitality", school: "USP — Ciência da Computação", link: "https://www.linkedin.com/in/breno-helfstein-moura-876885119/", cls: "rockstar", note: 9.5, anos: "5.9a IC", part: 1,
+    pos: ["USP CS com medalhas em olimpíadas de Informática e Astronomia", "5.9 anos na Palantir como IC (FDSE → Tech Lead), progressão sem cargo de gestão de pessoas", "Backend explicitamente descrito no perfil: Java, Go, Docker, GraphQL, cloud-native para sistemas escaláveis", "Estágios em Facebook Londres, Palantir Palo Alto e VTEX"],
+    neg: ["Cargos atuais (Head of Hospitality, Head of Engineering Brazil) têm componente de liderança — vale validar quanto é gestão vs. hands-on"],
+    just: "USP CS + 5.9 anos na Palantir sem virar gerente + backend confirmado explicitamente no perfil. Atua também em deployment de plataformas de IA com clientes — combinação rara que une o que a vaga pede com o que a Enter faz. Fora da curva." },
+
+  { name: "Gabriela Melo", company: "Senior SWE Operational AI @ Brex", school: "POLI-USP — Engenharia de Computação (Bach + Mestrado)", link: "https://www.linkedin.com/in/melogabriela/", cls: "rockstar", note: 9.5, anos: "8.5a IC", part: 1,
+    pos: ["POLI-USP Engenharia de Computação graduação + mestrado", "8.5 anos como IC sem nenhum cargo de gestão; Senior na Brex com promoção interna recente", "Stack backend de produção: Python, AWS Sagemaker, Terraform, PySpark", "Founding team na Legiti (ML Platform Tech Lead) e Belvo antes da Brex"],
+    neg: ["GitHub público pouco visível no LinkedIn (não eliminatório, mas desejável)"],
+    just: "POLI-USP mestrado + 8.5 anos IC + Senior na Brex (promoção interna) + founding team em duas startups + intercâmbio. Cumpre todos os critérios obrigatórios e ainda traz diferenciais desejáveis. A candidata mais bem encaixada do lote. Selecionada para Parte 4." },
+
+  { name: "Gabriel Erzinger", company: "Senior SWE @ Alt", school: "UNIFEI — Ciência da Computação", link: "https://www.linkedin.com/in/gabriel-erzinger/", cls: "rockstar", note: 9, anos: "7.8a IC", part: 1,
+    pos: ["7.8 anos como IC sem nenhum cargo de gestão em toda a carreira", "4 anos na Brex como IC (times Limits e Cards) + 2 anos Senior SWE em Payments no iFood", "Stack backend pesada para sistemas distribuídos: Kotlin, Kafka, Go, ScyllaDB, PostgreSQL", "GitHub público ativo (gabrielerzinger); bullets concretos no perfil: PIX, PCI-DSS, DAG orchestrator"],
+    neg: ["UNIFEI é federal técnica reconhecida, mas fora da lista estrita do prompt (POLI-USP, ITA, Insper)", "Sem trabalho ou estudo fora do Brasil declarado"],
+    just: "iFood Senior + 4 anos Brex como IC + GitHub ativo + stack backend pesada + identidade técnica de IC explícita no próprio perfil. 7.8 anos sem nenhum cargo de gestão. É o que o gabarito chama de 'engenheiro 10x' em formato de manual." },
+
+  // ============== PARTE 2: 3 FALSO-POSITIVOS ==============
+  { name: "Raphael Pinheiro da Silva", company: "Senior SWE @ Brex", school: "POLI-USP — Engenharia de Computação", link: "https://www.linkedin.com/in/raphael-pinheiro-da-silva/", cls: "fp", note: 9.5, anos: "4.5a IC + 9a gestão", part: 2,
+    pos: ["POLI-USP Engenharia de Computação", "Senior SWE na Brex há 4.5 anos"],
+    neg: ["VP Engineering na RockSpoon 4.5 anos + Program Manager 1.9 anos + Team Leader FDTE 3.4 anos: 9+ anos em gestão de pessoas", "MBA em 'Knowledge, Tech and Innovation' (sinal de pivô para gestão, não para aprofundamento técnico)", "Stack listada é magra para 15 anos de carreira"],
+    just: "Brex Senior + POLI brilham na primeira leitura, mas 9 anos em cargos de gestão de pessoas mostram que ele passou metade da carreira longe do código. O critério da vaga é IC sênior — bate exatamente no Falso-Positivo do gabarito." },
+
+  { name: "Pearson Henri", company: "FDE @ OpenAI", school: "Stanford — Symbolic Systems", link: "https://www.linkedin.com/in/pearson-henri-b4005563/", cls: "fp", note: 9, anos: "~3a IC + 6a gestão/founder", part: 2,
+    pos: ["Stanford + Palantir + co-founder da Legiti + FDE na OpenAI"],
+    neg: ["Sr. Director Solutions Design + Sr. Director Implementations na Signifyd: 2.3 anos em gestão pesada de pessoas", "CTO de startup = liderança/arquitetura, não IC puro escrevendo código", "FDE na OpenAI é cargo customer-facing, não SWE de produto backend"],
+    just: "Cada item do CV impressiona individualmente (Stanford, Palantir, OpenAI, co-founder), mas o conjunto não bate: IC puro real é ~3 anos no total. A trilha real é engenheiro → CTO → Sr. Director → FDE. Não é backend IC 6+ anos." },
+
+  { name: "Felipe Noronha", company: "Senior SWE @ Brex", school: "USP — Ciência da Computação", link: "https://www.linkedin.com/in/fcnoronha/", cls: "fp", note: 8.5, anos: "~3a full-time IC", part: 2,
+    pos: ["CS USP + top 20 MaratonUSP/ICPC", "Brex 3 anos com progressão SWE → Senior; estágios em Meta NY, VTEX e QuantumBlack (McKinsey)", "Stack moderna: Kotlin, Elixir, Rust"],
+    neg: ["~3 anos full-time pós-formatura (formou em 2022) — não atinge o critério de 6+ anos IC"],
+    just: "Recrutador inexperiente vê USP + Brex Senior + Meta NY e classifica como Rockstar. Mas senioridade real é de pleno-júnior: 3 anos full-time. Em 2-3 anos provavelmente vira Rockstar — não é hoje." },
+
+  // ============== PARTE 3: 3 NÃO ENCAIXAM ==============
+  { name: "Francisco Rodrigues", company: "SWE @ iFood", school: "UFS — Universidade Federal de Sergipe", link: "https://www.linkedin.com/in/chicofariasneto/", cls: "ruim", note: 9, anos: "~4a", part: 3,
+    pos: ["iFood atualmente (empresa top)", "Stack moderna: Python, Node, Go, AWS; participação em ICPC e 2º lugar Maratona Regional"],
+    neg: ["UFS fora da lista de faculdades de ponta", "~4 anos de carreira — abaixo do critério de 6+ anos", "IBM Services no histórico (consultoria de TI tradicional) + job-hopping: LinkApi 5m, IBM 7m, XP 1.3a", "Cargo SWE sem 'Senior' após 4 anos; apenas 10 meses no iFood atual"],
+    just: "Múltiplos sinais explícitos do critério Ruim somados: faculdade fora da lista + IBM Services + job-hopping + tempo insuficiente. O iFood é o único brilho recente, mas são apenas 10 meses. Vale guardar para revisitar em 2-3 anos." },
+
+  { name: "Marcos Felipe Nunes Lino Ribeiro", company: "Senior Backend @ Klavi", school: "POLI-USP + Grenoble INP-Ensimag (double degree)", link: "https://www.linkedin.com/in/marcosfnlr/", cls: "ruim", note: 7, anos: "~3a IC", part: 3,
+    pos: ["POLI-USP + double degree Grenoble INP-Ensimag; estágios em SAP Stuttgart e Sage San José"],
+    neg: ["Wipro no histórico (consultoria de TI tradicional — sinal explícito de Ruim)", "~3 anos full-time pós-formatura, sem nenhuma empresa top após a faculdade", "Senior há 9 meses; sem GitHub ou presença pública visível"],
+    just: "Faculdade brilhante sem empresas relevantes pós-formatura. POLI + Ensimag enganam de longe, mas a carreira pós-formatura é Wipro + Klavi. Não é um engenheiro ruim — é um perfil que ainda não tem o histórico que a Enter precisa ver." },
+
+  { name: "Emmanuel da Silva Dias", company: "SWE @ Nubank", school: "ITA — Engenharia de Computação", link: "https://www.linkedin.com/in/emmanuel-da-silva-dias/", cls: "ruim", note: 6, anos: "~2a IC", part: 3,
+    pos: ["ITA Computer Engineering + Nubank (empresa top)"],
+    neg: ["Formou em 2024 — ~2 anos de experiência total, abaixo do mínimo de 3 anos", "Cargo SWE sem Senior; Hyperplane só 9 meses, Giant Steps só 5 meses (intern)"],
+    just: "ITA + Nubank parecem ótimos a 30 segundos, mas o problema não é qualidade — é tempo. É um engenheiro júnior promissor que ainda está construindo a senioridade que a vaga exige. Provavelmente vira Rockstar em 4 anos." },
+
+  // ============== EXTRAS (não selecionados mas avaliados) ==============
+  { name: "Milton Eiji Takamura", company: "SWE @ Comp", school: "ITA + intercâmbio Trinity College Dublin", link: "https://www.linkedin.com/in/miltontakamura/", cls: "rockstar", note: 9, anos: "7.5a IC", part: null,
+    pos: ["ITA + Trinity College Dublin", "Stripe Dublin 1.1 anos + Nubank 2.4 anos; IC puro ~7.5 anos sem cargo de gestão"],
+    neg: ["Comp atual é startup pequena"],
+    just: "ITA + Stripe Dublin + Nubank + IC puro toda a carreira. Rockstar sólido." },
+
+  { name: "Vinícius Campos", company: "Senior SWE @ Brex", school: "POLI-USP + TU Darmstadt (double degree)", link: "https://www.linkedin.com/in/vinicius-campos-2b25a4180/", cls: "rockstar", note: 8, anos: "~8a IC", part: null,
+    pos: ["POLI-USP + double degree TU Darmstadt; Senior na Brex 2.1 anos", "Stack backend: Node, AWS, TypeScript; IC ~8 anos sem gestão"],
+    neg: ["POLI Eng. Mecânica (não CS)", "GitHub pouco visível"],
+    just: "POLI + TU Darmstadt + Brex IC. Engenharia mecânica é atrito menor dado que POLI está na lista. Rockstar bem encaixado." },
+
+  { name: "Uzair Navid Iftikhar", company: "MTS @ OpenAI", school: "Stanford CS (concentração em AI)", link: "https://www.linkedin.com/in/uzairn/", cls: "rockstar", note: 8.5, anos: "6.9a IC", part: null,
+    pos: ["Stanford CS (AI) + Oxford visiting; Google 2.5 anos + OpenAI MTS Applied AI/Retrieval 2 anos"],
+    neg: ["Carreira nos EUA, sem trajetória brasileira (mobilidade a confirmar)"],
+    just: "Stanford + Google + OpenAI + IC puro 6.9 anos. Forte para o que a Enter precisa em Applied AI Engineering." },
+
+  { name: "Leonardo Borges Mafra Machado", company: "FDE @ Palantir", school: "POLI-USP + CentraleSupélec (double degree)", link: "https://www.linkedin.com/in/leonardo-borges-mafra-machado/", cls: "rockstar", note: 8, anos: "6.0a IC", part: null,
+    pos: ["POLI-USP + CentraleSupélec; VTEX 2.7 anos + Palantir FDE 3.3 anos (Seul)"],
+    neg: ["FDE é cargo customer-facing, com componente backend mas não IC backend tradicional", "6 anos IC ficam exatamente no limiar do critério"],
+    just: "POLI + CentraleSupélec + VTEX + Palantir FDE. Forte dado que o trabalho na Palantir é similar ao que a Enter faz. Vale conversa." },
+
+  { name: "Rodrigo Grabowsky", company: "Staff SWE @ Privy (Stripe)", school: "Stanford", link: "https://www.linkedin.com/in/rodrigo-grabowsky/", cls: "fp", note: 8, anos: "~5a IC + 2.7a EM", part: null,
+    pos: ["Stanford + Brex 6 anos com progressão; Staff SWE no Privy/Stripe"],
+    neg: ["2.7 anos como Engineering Manager no Brex: IC puro real cai para ~5 anos", "Histórico tem apetite por gestão"],
+    just: "Stanford + Brex 6 anos parecem Rockstar imediato, mas 2.7 anos de EM reduzem o IC real para abaixo do critério. Voltou para IC — positivo, mas o histórico exige cautela." },
+
+  { name: "Marco Lanteri", company: "Senior SWE @ Google", school: "Università di Genova", link: "https://www.linkedin.com/in/marco-lanteri/", cls: "fp", note: 7.5, anos: "5.3a IC", part: null,
+    pos: ["Google Senior SWE Zurique 3.6 anos (promoção interna); Amazon SDE Madrid 1.7 anos; competitive programmer"],
+    neg: ["~5.3 anos IC — abaixo do critério de 6+; Università di Genova fora da lista estrita"],
+    just: "Google + Amazon + competitive programmer brilham, mas ~5.3 anos IC ficam abaixo do critério. Provavelmente vira Rockstar em ~12 meses." },
+
+  { name: "Izaque Sena", company: "SWE II @ Brex", school: "POLI-USP — Engenharia de Computação", link: "https://www.linkedin.com/in/izaque-sena-4a121120b/", cls: "fp", note: 8, anos: "~2a IC", part: null,
+    pos: ["POLI-USP Eng. de Computação + intercâmbio Polytechnique Montréal; Brex com progressão Intern → SWE II"],
+    neg: ["~2 anos full-time — bem abaixo dos 6+ exigidos; ainda no nível SWE II"],
+    just: "POLI + Brex + Polytechnique enganam, mas só 2 anos de experiência full-time. Falso-positivo clássico do júnior brilhante com marca forte." },
+
+  { name: "Hugo Ferraz Sangaletti", company: "Senior SWE @ Brex", school: "UNESP — Engenharia Elétrica", link: "https://www.linkedin.com/in/hugo-sangaletti/?locale=pt", cls: "fp", note: 7, anos: "~5a IC", part: null,
+    pos: ["Senior SWE na Brex 1 ano + Arena SF 2.9 anos; backend confirmado (TypeScript, Node, AWS); achievements concretos no perfil"],
+    neg: ["UNESP fora da lista; Eng. Elétrica (não CS); Tech Lead na Semantix (gestão); ~5 anos IC abaixo do critério"],
+    just: "Brex + Arena impressionam, mas UNESP fora da lista, Elétrica em vez de CS, menos de 6 anos IC. A marca recente de Brex Senior disfarça que o restante não bate." },
+
+  { name: "Matheus Michels", company: "Senior SWE @ Brex", school: "Univates", link: "https://www.linkedin.com/in/matheusmichels/", cls: "fp", note: 7, anos: "9a, mas frontend", part: null,
+    pos: ["Brex Senior 2.5 anos com promoção recente; 9+ anos de carreira"],
+    neg: ["Auto-descrição 'Passionate about the front-end ecosystem': mismatch direto com a vaga backend", "Univates fora da lista; histórico em consultorias (FullStack Labs, ilegra)"],
+    just: "Brex Senior brilha, mas o perfil é frontend-first declarado. A vaga é backend — isso é mismatch direto, não detalhe." },
+
+  { name: "Luis Lourenço", company: "Senior SWE @ Coinbase", school: "ITA (Bach + Mestrado + Doutorado)", link: "https://www.linkedin.com/in/lfdlourenco/", cls: "fp", note: 6.5, anos: "~8a (mas 5a Embraer)", part: null,
+    pos: ["ITA + Mestrado + Doutorado; Coinbase Senior SWE 1+ ano; stack backend Go, .NET, Node"],
+    neg: ["Embraer 5 anos (engenharia, mas não tech de produto padrão da lista); Scrum Master na Embraer (gestão leve); Onepay empresa pequena"],
+    just: "ITA + Coinbase salvam, mas Embraer 5 anos + Onepay diluem o histórico. Coinbase só 1.4 anos. O peso do histórico não-tech faz cair para Falso-positivo." }
+];
+
+const messagesEng = [
+  {
+    stage: "Etapa 1 — Pedido de conexão (LinkedIn)",
+    title: "Mensagem curta de connect",
+    meta: "Conexão no LinkedIn (limite 300 chars). Direto e específica.",
+    body: `Oi Gabriela, tudo bem? Me chamo Nathalie, sou Talent Acquisition na Enter. Sua trajetória é muito alinhada com o que estamos construindo. Adoraria me conectar com você.`,
+    rationale: "Apresentação clara (nome + função), elogio honesto sem ser exagerado. \"Adoraria me conectar\" é convite, não pedido de venda. Curta o suficiente para ser lida no celular sem fricção."
+  },
+  {
+    stage: "Etapa 2 — Primeiro contato (InMail)",
+    title: "InMail de primeiro contato",
+    meta: "Após connect aceito. Apresenta a Enter, conecta com o perfil dela e propõe conversa.",
+    body: `Oi Gabriela, tudo bem?
+
+Obrigada pela conexão.
+
+Vi seu perfil e me chamou atenção sua atuação em Operational AI na Brex, além da experiência como founding team na Legiti.
+
+Estamos construindo na Enter soluções de IA para automatizar processos críticos em escala. Já levantamos mais de R$300M, com apoio de fundos como Sequoia e Founders Fund, e atendemos empresas como Meta, Itaú, Mercado Livre e Nubank.
+
+O tipo de problema técnico que estamos resolvendo hoje é bem alinhado com o seu perfil, que combina construção e execução.
+
+Vamos marcar uma conversa?`,
+    rationale: "Abre conectando o perfil dela ao problema técnico da Enter (gancho específico, não genérico). Apresenta missão, números de capital/valuation e clientes-âncora para ancorar credibilidade. Stack mencionada com a ressalva de que não é determinante — abre porta para perfis fora da stack exata. Fecha com pedido pequeno e bilateral (\"adoraria entender seu momento também\")."
+  },
+  {
+    stage: "Etapa 3 — Follow-up",
+    title: "Follow-up após silêncio",
+    meta: "Follow-up se não respondeu (5-7 dias). Sem suplicar.",
+    body: `Oi Gabriela,
+
+Acredito muito no seu perfil para o que estamos construindo na Enter e, por isso, retomo o contato. Você vai gostar de entender com mais profundidade o desafio.
+
+Independentemente de qualquer coisa, gostaria muito de te ouvir. Aqui na Enter admiramos muito a Brex e acreditamos que essa troca inicial pode ser valiosa.
+
+Aguardo seu retorno.
+
+Obrigada,
+Nathalie`,
+    rationale: "Reconhece o silêncio sem cobrar. \"Independentemente de qualquer coisa, gostaria muito de te ouvir\" tira o peso de processo formal. Menção à Brex como elogio sincero (não puxação de saco) cria conexão emocional honesta — engenheira sênior reconhece quando o recrutador estudou o lugar dela."
+  }
+];
+
+/* ====================================================================
+   DADOS — CLIENT FOUNDER (novo)
+   ==================================================================== */
+const part4IntroCli = `Selecionei <strong>Marvin Grossi</strong>: cumpre os critérios da vaga com folga — POLI-USP + Bain + Palantir Deployment Strategist há 4 anos (cargo muito próximo do Client Founder da Enter). Está em SP e a tese da Enter conversa diretamente com o que ele já faz hoje.`;
+
+const candidatesCli = [
+  // ============== PARTE 1: 3 ROCKSTARS ==============
+  { name: "Thiago Pinheiro", company: "Consultant @ Bain & Company", school: "POLI-USP — Engenharia de Computação + INSEAD MBA", link: "https://www.linkedin.com/in/thiagodossantospinheiro/", cls: "rockstar", note: 9.5, anos: "~7a", part: 1,
+    pos: ["POLI-USP Eng. de Computação + MBA INSEAD (Singapore + France)", "1.5 ano como Software Development Engineer na QITech: programação real antes da consultoria", "Bain com progressão completa AC → SAC → Consultant 3+ anos", "Alvarez & Marsal Corporate Transformation 2 anos antes do Bain"],
+    neg: ["Saiu do código em 2019 — profundidade técnica atual precisa ser validada em case", "Sem passagem direta por AI Deployment ou tech enterprise pós-MBA (não obrigatório)"],
+    just: "Cumpre todos os critérios: 5+ anos sênior, MBB com progressão completa, programação real validada (não só listada), faculdade top + MBA global elite. A Enter já contratou Client Founders sem passagem direta por AI Deployment. Esse é o caso." },
+
+  { name: "Marvin Grossi", company: "Deployment Strategist @ Palantir", school: "POLI-USP — Engenharia Elétrica", link: "https://www.linkedin.com/in/marvingrossi/", cls: "rockstar", note: 9, anos: "~7a", part: 1,
+    pos: ["POLI-USP Eng. Elétrica com base técnica genuína (pesquisa metamateriais, Warthog Robotics, TOPUS Director Electronic Systems)", "Bain Associate Consultant 2 anos + Palantir Deployment Strategist 4+ anos", "O cargo na Palantir é exatamente o que o Client Founder da Enter executa: cliente + deployment + múltiplas indústrias"],
+    neg: ["Sem MBA (mas Bain + Palantir cumprem o critério com folga)", "Profundidade de programação atual pode ser mais business-side que técnica — vale validar em case"],
+    just: "POLI + Bain + 4 anos como Deployment Strategist na Palantir. Está há 4 anos executando o cargo mais próximo do Client Founder que existe. Cobre os dois lados da vaga (estruturação + execução). Selecionado para Parte 4." },
+
+  { name: "Jean Phelippe Ramos", company: "Forward Deployed Tech Lead @ Palantir", school: "POLI-USP + Khalifa University MSc (MIT affiliate, GPA 4.0 + Best Thesis) + Berkeley Haas Exec Ed", link: "https://www.linkedin.com/in/jean-pro/", cls: "rockstar", note: 9, anos: "~10a", part: 1,
+    pos: ["POLI-USP + MSc Khalifa University (afiliada ao MIT, GPA 4.0, Best Thesis Award) + Berkeley Haas", "Palantir Forward Deployed Tech Lead 4+ anos: lidera squads em México, Peru, Espanha e Brasil — combina relacionamento C-level com arquitetura técnica", "Maersk Data Team Lead na Holanda (2 anos, reporting direto ao CEO de startup $1Bi)", "Programação real e atual: Python, SQL, Spark, TypeScript, LLMs"],
+    neg: ["Sem passagem por MBB (cumpre pelo caminho B: 3+ anos em tech de ponta)", "Cargo Tech Lead: relacionamento com cliente C-level precisa ser validado em conversa"],
+    just: "Cumpre pelo caminho B do gabarito (3+ anos em tech de ponta). Forward Deployed Tech Lead na Palantir é cargo híbrido por design: cliente + arquitetura + implementação. Programação genuína e atual. Maersk Holanda confirma gestão de produto em escala internacional." },
+
+  // ============== PARTE 2: 3 FALSO-POSITIVOS ==============
+  { name: "Leonardo Sabo", company: "Client Partner / Forward Deployment @ Comp", school: "NYU Stern", link: "https://www.linkedin.com/in/leonardosabo/", cls: "fp", note: 6, anos: "~9a", part: 2,
+    pos: ["NYU Stern + JP Morgan IB 6.5 anos (LatAm + Brazil Advisory)"],
+    neg: ["Carreira inteira em finanças (banco de investimento + VC) — sem programação, sem produto, sem tech enterprise", "Cargo 'Forward Deployment' na Comp tem só 6 meses (startup de RH, não tech enterprise)"],
+    just: "NYU + JP Morgan + 'Forward Deployment' no título engana qualquer recrutador inexperiente, mas a trajetória é inteiramente de banker. Falta a metade técnica e a metade de consultoria estruturada. Quase didático como estudo de Falso-Positivo." },
+
+  { name: "João Vitor Sampaio", company: "Engagement Manager @ McKinsey", school: "POLI-USP + Tuck MBA (STEM)", link: "https://www.linkedin.com/in/jo%C3%A3o-vitor-sampaio/", cls: "fp", note: 7, anos: "12+a", part: 2,
+    pos: ["POLI-USP Eng. Mecânica + MBA Tuck STEM; McKinsey AC → EM em 5+ anos"],
+    neg: ["Carreira 100% McKinsey + pré-MBA em energia industrial pesada — sem nenhuma passagem por produto, startup ou tech", "Programação não evidenciada em nenhum momento"],
+    just: "POLI + Tuck + McKinsey EM com retórica pesada de IA, mas é 100% consultoria. É o caso clássico do consultor MBB que nunca fez a transição. Sem o segundo pé de tech/execução e sem programação." },
+
+  { name: "Pedro Iguelka", company: "Business Analyst @ McKinsey", school: "FGV Administração", link: "https://www.linkedin.com/in/pedro-iguelka-137773186/", cls: "fp", note: 5, anos: "~5a", part: 2,
+    pos: ["FGV Adm + McKinsey BA; founder com rodada captada R$2M (Flor e Fruto agtech, ~R$6M ARR); discurso forte sobre AI agents e GTM"],
+    neg: ["McKinsey ~12 meses: curto demais para consolidar pensamento estruturado MBB", "'AI agents' sem evidência de código real ou repositório público — fica como narrativa de LinkedIn"],
+    just: "Mistura ingredientes que parecem certos (MBB + founder + AI), mas McKinsey foi curto, founder em foodtech sem componente técnico, e programação não evidenciada. A soma das partes ainda é imatura. Em 2-3 anos pode virar Rockstar." },
+
+  // ============== PARTE 3: 3 NÃO ENCAIXAM ==============
+  { name: "Catharina P.", company: "Client Partner @ Comp", school: "FGV Administração + MBA Gestão Comercial", link: "https://www.linkedin.com/in/catharina-p-9a8786190/", cls: "ruim", note: 3, anos: "~5a", part: 3,
+    pos: ["FGV Adm; cargo atual tem 'Client Partner / Forward Deployment' no título"],
+    neg: ["Trajetória inteira em vendas para consumo: PepsiCo, LVMH, Red Bull, Push & Pow (gerente comercial)", "Nenhuma passagem por consultoria, tech, produto ou programação", "Apenas 7 meses na Comp — transição recentíssima"],
+    just: "O título 'Forward Deployment' engana à primeira vista, mas o primeiro scroll desfaz: é carreira de vendas B2C para mercado de consumo. Não cumpre nenhum critério obrigatório. Útil para treinar o filtro 'leia a carreira inteira, não só o cargo atual'." },
+
+  { name: "Esdras Cavalcanti", company: "Associate Consultant @ BCG (ex-Data Science Intern @ BCG X)", school: "FGV Data Science e IA + IME (início)", link: "https://www.linkedin.com/in/esdras-cavalcanti-wbt/", cls: "ruim", note: 4, anos: "<1a full-time", part: 3,
+    pos: ["FGV DS+IA + início em IME; BCG X DS Intern → Associate Consultant; programação real (fine-tuning T5, LLaMA, BERT)"],
+    neg: ["Recém-formado dez/2025 — menos de 1 ano full-time; muito abaixo dos 5+ anos exigidos"],
+    just: "FGV DS+IA + BCG X parecem ótimos, mas o problema não é qualidade — é tempo. A vaga precisa de alguém que conduza cliente C-level agora. Provavelmente vira Rockstar em 3-4 anos." },
+
+  { name: "Ranny C.", company: "Business Development @ Palantir", school: "West Point + Wharton MBA", link: "https://www.linkedin.com/in/rannykjchoi/", cls: "ruim", note: 6.5, anos: "~10a", part: 3,
+    pos: ["West Point Eng. Mecânica + Wharton MBA; U.S. Army Special Operations ~3 anos; BCG Consultant 2 anos"],
+    neg: ["Baseado em Nova York — mobilidade para o Brasil não declarada", "Business Development na Palantir é cargo de vendas/comercial, não Deployment Strategist", "Sem programação evidenciada em nenhum momento"],
+    just: "CV impressionante em outro contexto (West Point + Wharton + BCG + Palantir), mas três problemas somados: está nos EUA, cargo é BD (não deployment), e sem programação. Para uma vaga de BD nos EUA seria forte; para Client Founder em SP, não." },
+
+  // ============== EXTRAS (não selecionados mas avaliados) ==============
+  { name: "Danilo Fronha", company: "Associate Partner @ McKinsey", school: "FGV Adm + Wharton MBA", link: "https://www.linkedin.com/in/danilofronha/", cls: "fp", note: 7, anos: "10+a", part: null,
+    pos: ["FGV + MBA Wharton (Director's List, top 10%); McKinsey AC → EM → SAP → AP em 5+ anos; Nubank Business Architect Lead 1 ano; Google PMM MBA Intern"],
+    neg: ["Associate Partner em McKinsey: senioridade overshoot para vaga IC", "Programação não evidenciada; passagem pelo Nubank foi há 8 anos e apenas 1 ano"],
+    just: "CV brilhante, mas senioridade overshoot (AP ganha mais e tem mais autonomia que a vaga oferece) e sem programação real. A passagem pelo Nubank foi curta e antiga." },
+
+  { name: "Mateus Pedrino", company: "Lead Data Scientist & Project Leader @ BCG X", school: "POLI-USP — Engenharia Elétrica (GPA 9.0/10)", link: "https://www.linkedin.com/in/mateus-pedrino-27ab74180/", cls: "rockstar", note: 9, anos: "6+a", part: null,
+    pos: ["POLI-USP Eng. Elétrica GPA 9.0; BCG X 6+ anos AC → Senior DS → Lead DS & Project Leader", "Portfólio técnico denso: ML, GenAI, otimização discreta, modelos hierárquicos bayesianos; paper publicado"],
+    neg: ["Sem MBA; carreira inteira no BCG X sem outra passagem por tech ou startup"],
+    just: "Cumpre todos os critérios e tem programação real. A Parte 1 priorizou diversidade de perfil — Thiago, Marvin e Jean. Forte para abordagem direta, especialmente se a Enter quiser profundidade técnica em data science." },
+
+  { name: "Sarah Nadaud", company: "Lead Forward Deployed AI Scientist @ BCG X", school: "UFRJ — Matemática Aplicada", link: "https://www.linkedin.com/in/sarah-ca-nadaud/", cls: "rockstar", note: 8, anos: "5+a", part: null,
+    pos: ["UFRJ Matemática Aplicada; BCG X DS → Senior → Lead FDE AI Scientist 4+ anos; programação e ML em ambiente de consultoria estratégica"],
+    neg: ["BCG X é diferente do BCG core; UFRJ fora da lista estrita; sem MBA"],
+    just: "4+ anos em BCG X com programação real, mas faculdade fora da lista estrita e senioridade de Lead recente. Forte candidata para abordagem." },
+
+  { name: "Bruno F.", company: "Forward Deployed AI Scientist @ BCG X", school: "UFRJ + ENSIC França (double degree)", link: "https://www.linkedin.com/in/brunofrac/", cls: "rockstar", note: 8.5, anos: "~4a", part: null,
+    pos: ["UFRJ Eng. Química + ENSIC França (dupla diplomação); Oliver Wyman Consultant 2 anos; BCG X FDE AI Scientist 1.5 anos; programação real: Python, ML, Gurobi, RAG; finalista X Challenge 2024"],
+    neg: ["Oliver Wyman não é MBB clássico; BCG X ainda recente; ~4 anos ficam no limiar dos 5+"],
+    just: "Oliver Wyman + BCG X é forte mas nenhuma das duas é MBB clássico, e senioridade está no limiar. Programação real é o ponto mais forte. Vale revisitar em 12 meses." },
+
+  { name: "Ai Takahashi", company: "Co-founder/CEO + Harvard Researcher", school: "Harvard Kennedy MPA + HBS cross-reg", link: "https://www.linkedin.com/in/ai-takahashi/", cls: "rockstar", note: 8.5, anos: "~7a", part: null,
+    pos: ["Harvard Kennedy MPA STEM (Kennedy Fellowship) + HBS cross-reg; McKinsey EM 3.5 anos; co-founder C10 Labs (AI startup, selecionada de 180+ apps); Researcher no Belfer Center Harvard + OpenAI Forum Member"],
+    neg: ["Programação não evidenciada — precisa ser validada", "Baseada nos EUA — mobilidade a confirmar"],
+    just: "CV brilhante e cumpre os dois lados (MBB + tech como founder), mas a programação não está evidenciada e a geografia é EUA. Se confirmados em conversa, vira candidata muito forte." },
+
+  { name: "Victor Raposo", company: "Forward Deployed Engineer @ Palantir", school: "USP Computer Science + TU München", link: "https://www.linkedin.com/in/victor-raposo/", cls: "fp", note: 6, anos: "~7a", part: null,
+    pos: ["USP CS + TU München; VTEX SWE 2.5 anos (programação real); Palantir FDE 4+ anos"],
+    neg: ["Trajetória 100% como IC técnico — sem sinal de relacionamento estruturado com cliente C-level ou condução de negócio"],
+    just: "Engenheiro excelente, mas a vaga é Client Founder (cliente + implementação), não Engineer puro. Para FDE da Enter seria Rockstar; para Client Founder falta o lado business-facing." },
+
+  { name: "Marcus Macedo", company: "AI Engineer / Stealth Consultant", school: "ITA Pós-graduação Data Science + UFABC", link: "https://www.linkedin.com/in/macedo-mvc/", cls: "fp", note: 5.5, anos: "7+a", part: null,
+    pos: ["ITA Pós-graduação DS; Itaú Data Scientist 3+ anos; programação forte: Python, RAG, LangGraph, multi-agent systems"],
+    neg: ["Sem MBB, sem MBA, sem tech enterprise da lista", "Perfil de AI Engineer/IC técnico — sem componente de condução de cliente"],
+    just: "Programação talvez a mais sólida do lote, mas falta o lado de consultoria estruturada e relacionamento com cliente C-level. Para AI Engineer seria forte; para Client Founder não bate." },
+
+  { name: "Erick Goncalves de Matos", company: "Data Engineer II @ QuantumBlack (McKinsey)", school: "ITA Engenharia Eletrônica + Pós-Graduação em Data Science", link: "https://www.linkedin.com/in/erickgmatos/", cls: "fp", note: 6.5, anos: "~7a", part: null,
+    pos: ["ITA Eng. Eletrônica + Pós DS; Força Aérea Brasileira 5 anos; QuantumBlack (braço IA McKinsey) DE I → II 3+ anos; Databricks Certified"],
+    neg: ["Cargo de Data Engineer (IC técnico), sem condução de cliente C-level; carreira pré-QB foi militar, não consultoria estratégica"],
+    just: "ITA + QuantumBlack 3 anos é combinação forte como engenheiro de dados. Para Engineer da Enter seria Rockstar; para Client Founder falta o lado de business-facing." },
+
+  { name: "Pedro Nardino Lenzi", company: "Forward Deployed AI Scientist @ BCG X", school: "University of Exeter — Matemática", link: "https://www.linkedin.com/in/pedro-nardino-lenzi/", cls: "fp", note: 6, anos: "~5a", part: null,
+    pos: ["ENGYS Java SWE 3.5 anos (programação real); BCG X FDE AI Scientist recente"],
+    neg: ["BCG X muito recente (saiu de intern para FDE em jan/2026); sem MBB; faculdade fora da lista de ponta"],
+    just: "Tem programação genuína e entrada em BCG X, mas a consultoria estratégica ainda não consolidou. Em 1-2 anos pode virar Rockstar." },
+
+  { name: "Gabriela Mendes Alves", company: "Consultant @ Bain & Company", school: "POLI-USP + Grenoble INP-Phelma (double degree)", link: "https://www.linkedin.com/in/gabrielamas/", cls: "fp", note: 6.5, anos: "~3a", part: null,
+    pos: ["POLI-USP + Grenoble INP-Phelma; Bain AC → SAC → Consultant 3+ anos"],
+    neg: ["Sem programação evidenciada; carreira inteira em consultoria após a formatura"],
+    just: "Bain sólido + faculdade top, mas é o arquétipo do 'MBB jovem só com consultoria': falta o lado de execução em produto e falta a programação." },
+
+  { name: "Beatriz Salomé", company: "Consultant @ Bain & Company", school: "UFMG — Engenharia Aeroespacial", link: "https://www.linkedin.com/in/beatrizsalome/", cls: "fp", note: 6.5, anos: "~4a", part: null,
+    pos: ["Bain AC → SAC → Consultant 4+ anos; UFMG Eng. Aeroespacial"],
+    neg: ["Sem produto, startup ou tech em nenhum momento; sem programação; UFMG fora da lista estrita"],
+    just: "Mesmo padrão de 'MBB jovem só com consultoria'. Bain sólido, mas faltam dois critérios obrigatórios: tech/execução e programação." },
+
+  { name: "Beatriz Moreira", company: "Senior Associate @ BCG", school: "FGV Economia + Tilburg University", link: "https://www.linkedin.com/in/beatriz-moreira-/", cls: "fp", note: 5.5, anos: "~5a", part: null,
+    pos: ["BCG Senior Associate 3+ anos (progressão); FGV Economia + Tilburg"],
+    neg: ["Accenture Management Consultant 2 anos antes do BCG (Accenture é consultoria menor)", "Sem produto, tech, programação ou MBA"],
+    just: "BCG é sólido, mas curto e ancorado em Accenture pré-BCG. Sem segundo pé em tech/produto, sem programação. Faltam dois critérios obrigatórios." },
+
+  { name: "Lucas Borges Hanusch", company: "CEO @ Bernoulli Educação", school: "ITA Engenharia Aeronáutica + ENSMA França", link: "https://www.linkedin.com/in/lucas-hanusch/", cls: "fp", note: 7, anos: "15+a", part: null,
+    pos: ["ITA + ENSMA França; Bain + Integration; CEO Bernoulli (~R$1Bi); Diretor Kroton 6 anos (produto digital, 1M alunos)"],
+    neg: ["Senioridade muito acima do nível IC — é CEO executivo com 15+ anos", "Educação básica não é tech enterprise; sem programação"],
+    just: "CV impressionante, mas perfil de executivo CEO em empresa tradicional. Senioridade overshoot e fora do contexto AI Deployment enterprise." },
+
+  { name: "João Paulo Alcántara", company: "Executive Director AI @ BTG Pactual", school: "ITA + Harvard MA + Oxford PhD + LBS MBA", link: "https://www.linkedin.com/in/jpalcantara/", cls: "fp", note: 7.5, anos: "10+a", part: null,
+    pos: ["ITA + Harvard MA + Oxford PhD + LBS MBA; Itaú Head of DS/AI 2 anos; BTG Exec Dir AI; Professor FGV IA"],
+    neg: ["Perfil mais research/policy/governance do que deployment hands-on com cliente enterprise", "Executive Director: senioridade overshoot para vaga IC"],
+    just: "Profundidade acadêmica rara + formação tier-zero + Head DS em fintech. Mas é mais research/strategy que executor de AI Deployment. Para AI Strategy ou advisory seria perfeito; para Client Founder hands-on é overshoot." }
+];
+
+const messagesCli = [
+  {
+    stage: "Etapa 1 — Pedido de conexão (LinkedIn)",
+    title: "Mensagem curta de connect",
+    meta: "Conexão no LinkedIn (limite 300 chars). Direto e específica.",
+    body: `Oi Marvin, tudo bem? Me chamo Nathalie, sou Talent Acquisition na Enter. Sua trajetória é muito alinhada com o que estamos construindo. Adoraria me conectar com você.`,
+    rationale: "Apresentação clara (nome + função), elogio honesto sem ser exagerado. \"Adoraria me conectar\" é convite, não pedido de venda. Curta o suficiente para ser lida no celular sem fricção."
+  },
+  {
+    stage: "Etapa 2 — Primeiro contato (InMail)",
+    title: "InMail de primeiro contato",
+    meta: "Após connect aceito. Apresenta a Enter, conecta com o que ele já faz hoje na Palantir e propõe conversa.",
+    body: `Oi Marvin, tudo bem?
+
+Obrigada pela conexão.
+
+Vi seu perfil e me chamou atenção sua atuação como Deployment Strategist na Palantir, além da sua passagem pela Bain e pela SumUp.
+
+Estamos construindo na Enter soluções de IA para automatizar processos críticos em escala. Já levantamos mais de R$300M, com apoio de fundos como Sequoia e Founders Fund, e atendemos empresas como Meta, Itaú, Mercado Livre e Nubank.
+
+O tipo de problema que estamos resolvendo hoje é bem alinhado com o seu perfil, especialmente business-facing, mas exige também conhecimento técnico sólido de programação.
+
+Vamos marcar uma conversa?`,
+    rationale: "Abre conectando direto o cargo dele atual (Deployment Strategist na Palantir) com o cargo da Enter — gancho específico que mostra estudo. Apresenta missão, números de capital/valuation e clientes-âncora. Reforça a exigência técnica de programação para deixar claro que não é vaga só de relacionamento. Fecha com pedido pequeno e bilateral."
+  },
+  {
+    stage: "Etapa 3 — Follow-up",
+    title: "Follow-up após silêncio",
+    meta: "Follow-up se não respondeu (5-7 dias). Sem suplicar.",
+    body: `Oi Marvin,
+
+Acredito muito no seu perfil para o que estamos construindo na Enter e, por isso, retomo o contato. Você vai gostar de entender com mais profundidade o desafio.
+
+Independentemente de qualquer coisa, gostaria muito de te ouvir. Aqui na Enter admiramos muito a Palantir e como ela vem redesenhando carreiras e o mercado de trabalho no geral.
+
+Aguardo seu retorno.
+
+Obrigada,
+Nathalie`,
+    rationale: "Reconhece o silêncio sem cobrar. \"Independentemente de qualquer coisa, gostaria muito de te ouvir\" tira o peso de processo formal. Elogio à Palantir como empresa cria conexão profissional sincera — quem está há 4 anos lá reconhece quando alguém estudou o ambiente."
+  }
+];
+
+/* ====================================================================
+   DADOS — LEGAL STRATEGY
+   ==================================================================== */
+const part4IntroLeg = `Selecionei <strong>Vitor Szpiz do Nascimento</strong>: trajetória rara que combina contencioso brasileiro estratégico (LDCM + Machado Meyer + PUC-Rio com Mestrado) com arbitragem internacional de elite (Squire Patton Boggs Paris e Three Crowns). Ponte pessoal com a recrutadora reduz risco de contratação e abre abordagem por confiança.`;
+
+const candidatesLeg = [
+  // ============== PARTE 1: 3 ROCKSTARS ==============
+  { name: "Vitor Szpiz do Nascimento", company: "Associate @ Machado Meyer", school: "PUC-Rio (Graduação + Mestrado)", link: "https://www.linkedin.com/in/vitor-szpiz-do-nascimento/", cls: "rockstar", note: 10, anos: "5+a", part: 1, ponte: true,
+    pos: [
+      "LDCM 5+ anos: boutique de elite em contencioso e arbitragem",
+      "Three Crowns + Squire Patton Boggs Paris: arbitragem internacional top",
+      "Machado Meyer agora + estágio no Sergio Bermudes",
+      "PUC-Rio graduação + Mestrado"
+    ],
+    neg: [
+      "Foco em arbitragem/contencioso estratégico, não volume puro de massa"
+    ],
+    just: "É a trajetória mais rara que encontrei para dispute resolution estratégico: combina boutique de elite (LDCM), arbitragem internacional de altíssimo nível (Three Crowns) e top-tier full-service (Machado Meyer). Acadêmico forte e contínuo (Mestrado). Ponte pessoal reduz drasticamente o risco da contratação. Selecionado para Parte 4." },
+
+  { name: "Maria Eduarda Caramez", company: "Senior Associate @ Mattos Filho", school: "PUC-Rio + LLM Georgetown (with Distinction)", link: "https://www.linkedin.com/in/maria-eduarda-caramez/", cls: "rockstar", note: 9, anos: "7+a", part: 1, ponte: true,
+    pos: [
+      "Mattos Filho 7+ anos em Contencioso e Arbitragem (área certa, top-tier puro)",
+      "PUC-Rio (1ª colocada no vestibular) + LLM Georgetown with Distinction",
+      "Squire Patton Boggs Washington DC"
+    ],
+    neg: [
+      "Sem in-house e sem exposição direta a tech (desejável, não obrigatório)"
+    ],
+    just: "Cumpre todos os critérios obrigatórios com folga e tem o pedigree completo: top-tier brasileiro na área certa, faculdade de ponta, LLM em uma das escolas de arbitragem mais respeitadas dos EUA, e passagem internacional. A ausência de tech é o único ponto fraco, mas o gabarito coloca tech como desejável. Ponte pessoal é fator que reduz risco." },
+
+  { name: "Pedro Antônio Junqueira de Mendonça", company: "In-house @ BNY Mellon (ex-BMA)", school: "FGV Rio LLB+LLM + Mestrado FGV SP em Direito e Tecnologia", link: "https://www.linkedin.com/in/pajjunqueira/", cls: "rockstar", note: 9, anos: "10a", part: 1, ponte: false,
+    pos: [
+      "10 anos em contencioso e arbitragem",
+      "BMA (top-tier) + BNY Mellon (in-house em instituição financeira global)",
+      "FGV Rio LLB + LLM + Mestrado FGV SP em Direito e Tecnologia"
+    ],
+    neg: [
+      "Lobo & Lira no início (não top-tier)",
+      "Sem passagem por fintech direta — banco tradicional"
+    ],
+    just: "Combinação que casa exatamente com o que a vaga pede: top-tier brasileiro em dispute (BMA) + in-house financeiro global (BNY Mellon) + Mestrado em Direito e Tecnologia. O Mestrado em Direito e Tecnologia é o sinal raro que liga Legal Strategy ao mundo de produto/IA. Trajetória mais consolidada do lote, com 10 anos focados em disputa." },
+
+  // ============== PARTE 2: 3 FALSO-POSITIVOS ==============
+  { name: "Maria Eugenia de Araujo Vianna", company: "Mid-Level Associate @ Pinheiro Neto", school: "Pós FGV Rio Direito e Tech + Columbia visiting", link: "https://www.linkedin.com/in/mariaearaujov/", cls: "fp", note: 8, anos: "3+a", part: 2, ponte: false,
+    pos: [
+      "Pinheiro Neto Mid-Level Associate (top-tier puro)",
+      "Pós FGV Rio em Direito, Inovação e Tecnologia + visiting Columbia",
+      "Tech-savvy explícito: trabalha com Harvey, data centers e IA"
+    ],
+    neg: [
+      "Área é Corporate/M&A em Digital Infra — não é dispute resolution",
+      "Trajetória inteira em transação, sem passagem por contencioso"
+    ],
+    just: "CV impecável e tech-savvy explícito — todos os ingredientes que a Enter quer ver. Mas a área é M&A/Corporate, não dispute. É o falso-positivo clássico do tipo 'logo certo, área errada'. Para uma futura vaga de Legal Counsel produto/M&A na Enter, ela é candidata óbvia." },
+
+  { name: "Marcella Cruz", company: "In-house @ inDrive (ex-Mattos Filho/MM/Veirano)", school: "LLM Vanderbilt", link: "https://www.linkedin.com/in/amarcellacruz/", cls: "fp", note: 7, anos: "11+a", part: 2, ponte: false,
+    pos: [
+      "Veirano 11 anos + Machado Meyer + Mattos Filho",
+      "LLM Vanderbilt",
+      "in-house em tech global (inDrive) — ativo raríssimo"
+    ],
+    neg: [
+      "Área é Trabalhista, Compliance e Workplace Investigations — não é dispute",
+      "Senioridade muito alta para a vaga IC sênior"
+    ],
+    just: "CV excepcional + ativo raríssimo de tech global, mas a prática real é trabalhista/compliance e a senioridade está acima do que a vaga pede. Para uma vaga de Compliance ou Privacidade na Enter, candidata muito forte; para Legal Strategist em dispute, não fecha." },
+
+  { name: "Carlos Herculano Cubillas", company: "Senior Associate @ Mattos Filho", school: "USP", link: "https://www.linkedin.com/in/carlos-herculano-cubillas/", cls: "fp", note: 7, anos: "9+a", part: 2, ponte: false,
+    pos: [
+      "Mattos Filho Senior Associate 9+ anos (top-tier puro, longa permanência)",
+      "USP na graduação"
+    ],
+    neg: [
+      "Área é Infraestrutura, M&A e Contratos — infra consultivo/M&A puro é FP",
+      "Sem passagem por contencioso ou arbitragem"
+    ],
+    just: "Logo + faculdade no ponto, mas a área é Infraestrutura/M&A consultivo, não dispute. Pelo critério, infra-litigation/arbitragem contaria como Rockstar; infra puro de transação é FP. Engana no primeiro filtro pelo logo, quebra no segundo." },
+
+  // ============== PARTE 3: 3 NÃO ENCAIXAM ==============
+  { name: "Maria Eduarda Lemgruber", company: "Director @ BTG Pactual", school: "PUC-Rio + LLM NYU", link: "https://www.linkedin.com/in/maria-eduarda-lemgruber-925325a4/", cls: "ruim", note: 6, anos: "10+a", part: 3, ponte: false,
+    pos: [
+      "Trajetória excepcional: King & Spalding NY + BMA + XP + Inspira (legaltech)",
+      "PUC-Rio + LLM NYU"
+    ],
+    neg: [
+      "Director em BTG há 1+ ano: pelo critério, é trajetória de saída executiva",
+      "Senioridade Director está acima do que a vaga IC sênior oferece"
+    ],
+    just: "CV talvez o mais redondo do lote: cobre todos os eixos da vaga (top-tier internacional + brasileiro + in-house fintech + legaltech + LLM elite). Mas pelo critério da vaga, Director há mais de 1 ano é trajetória de saída executiva e não encaixa em IC sênior. Para uma vaga de líder de célula na Enter, candidata óbvia." },
+
+  { name: "Natália Mizrahi Lamas", company: "Sócia Fundadora @ NLamas (ex-FCDG)", school: "Não declarada + ICC Academy", link: "https://www.linkedin.com/in/nat%C3%A1lia-mizrahi-lamas-0929a733/", cls: "ruim", note: 5, anos: "13+a", part: 3, ponte: false,
+    pos: [
+      "FCDG 13+ anos como Partner + sócia fundadora da NLamas",
+      "VP CCI Brasil + Diretora CBAr + Chambers Band 3 como árbitra",
+      "Shearman & Sterling Paris no início"
+    ],
+    neg: [
+      "Sócia fundadora atuando como árbitra: trajetória de saída executiva clássica",
+      "Senioridade muito acima do que a vaga oferece"
+    ],
+    just: "Não há cenário em que ela aceite a vaga. Trajetória de saída executiva clássica: deixou FCDG para fundar a própria banca e atuar como árbitra. Para advisory ou colaboração como árbitra, faz sentido; para essa vaga, não." },
+
+  { name: "Maria Vitória de Morais", company: "Compliance @ Arco Educação (ex-Pinheiro Neto)", school: "PUC-SP", link: "https://www.linkedin.com/in/maria-vit%C3%B3ria-de-morais/", cls: "ruim", note: 5, anos: "4+a", part: 3, ponte: false,
+    pos: [
+      "Pinheiro Neto 4+ anos (estágio + associada)",
+      "PUC-SP na graduação"
+    ],
+    neg: [
+      "Área é Compliance e Penal Econômico — não é dispute",
+      "Saiu do PN para Compliance em Arco: direção de carreira é compliance, não dispute"
+    ],
+    just: "Logo top-tier + faculdade certa, mas área e direção de carreira são compliance/penal. Para vaga de Compliance em outro contexto, fit; para Legal Strategist em dispute, não." },
+
+  // ============== EXTRAS (não selecionados nas Partes 1-3) ==============
+  { name: "Carla Cristina da Silva Almeida", company: "Senior @ Mattos Filho", school: "USP + LLM Insper", link: "https://www.linkedin.com/in/carla-cristina-da-silva-almeida-418a88150/", cls: "rockstar", note: 8, anos: "10+a", part: null, ponte: false,
+    pos: [
+      "Mattos Filho 7 anos em Contencioso e Arbitragem (top-tier na área da vaga)",
+      "Veirano antes (top-tier)",
+      "USP + LLM Insper",
+      "Foco em class actions (volume estratégico)"
+    ],
+    neg: ["Sem in-house e sem exposição direta a tech"],
+    just: "Top-tier puro em litigation + USP + foco em class actions é combinação forte. Faltou a exposição a tech — fora isso, é Rockstar de pleno direito. Forte para abordagem direta." },
+
+  { name: "Bárbara Braz", company: "Junior @ Machado Meyer", school: "USP + intercâmbio Hamburg", link: "https://www.linkedin.com/in/b%C3%A1rbara-braz/", cls: "rockstar", note: 8, anos: "2a efetivos", part: null, ponte: false,
+    pos: [
+      "Machado Meyer Litigation 2+ anos (top-tier puro na área da vaga)",
+      "USP + Hamburg",
+      "Moots Jessup, Mandela, Oxford (perfil acadêmico forte em direito internacional)"
+    ],
+    neg: ["Senioridade no limite mínimo (2 anos efetivos)"],
+    just: "Pelo novo critério (2+ anos pós-OAB e moots/arbitragem internacional contam como Rockstar), entra. Top-tier puro na área certa + USP + perfil internacional. Em 3 anos, vira top 3 fácil." },
+
+  { name: "Rodrigo Igrejas Filgueiras", company: "Associate @ Lefosse", school: "Não declarada", link: "https://www.linkedin.com/in/rodrigo-igrejas-filgueiras-a1ab26102/", cls: "rockstar", note: 8, anos: "7+a", part: null, ponte: false,
+    pos: [
+      "Lefosse + Lobo de Rizzo 7+ anos (top-tier brasileiros)",
+      "Estágios em Pinheiro Neto e Machado Meyer",
+      "Foco em contencioso cível estratégico"
+    ],
+    neg: ["Faculdade de graduação não declarada (risco real)"],
+    just: "Trajetória sólida em dispute top-tier com foco claro em cível estratégico. A faculdade não declarada é o único ponto que precisa ser confirmado em conversa." },
+
+  { name: "Matheus Lacerda Dias da Costa", company: "Associate @ Machado Meyer", school: "PUC-SP", link: "https://www.linkedin.com/in/matheusldcosta/", cls: "rockstar", note: 8, anos: "5+a", part: null, ponte: false,
+    pos: [
+      "Machado Meyer 5+ anos (top-tier)",
+      "PUC-SP",
+      "Foco em contencioso cível + reestruturação + recuperação de crédito"
+    ],
+    neg: ["Sem in-house e sem exposição a tech"],
+    just: "Top-tier + PUC-SP + área dominante alinhada (contencioso cível e recuperação de crédito). Forte candidato direto." },
+
+  { name: "Fernando Lula", company: "Lawyer @ Mattos Filho", school: "USP + duplo diploma Lyon 2", link: "https://www.linkedin.com/in/fernando-lula-2a2912142/", cls: "rockstar", note: 8, anos: "<2a no MF", part: null, ponte: false,
+    pos: [
+      "Mattos Filho como Lawyer + USP + duplo diploma Lyon 2",
+      "Squire Patton Boggs Paris + Herbert Smith Freehills Paris",
+      "Boutique Flavia Mange"
+    ],
+    neg: ["Pouco tempo no Mattos Filho (consolidando transição)"],
+    just: "Pelo novo critério (arbitragem internacional conta como Rockstar), entra. Trajetória internacional muito forte + USP + duplo diploma. Mais acadêmico/internacional do que volume." },
+
+  { name: "Priscila Feitosa", company: "Contencioso Bancário @ BTG (ex-Banco PAN)", school: "São Judas + LLM Insper Mercados Financeiros", link: "https://www.linkedin.com/in/priscila-feitosa-1a7574a2/", cls: "rockstar", note: 7, anos: "7+a", part: null, ponte: false,
+    pos: [
+      "7+ anos contencioso bancário in-house (BTG é tier-1)",
+      "LLM Insper em Mercados Financeiros (compensa graduação)",
+      "Foco em contencioso bancário direto"
+    ],
+    neg: ["São Judas na graduação", "Sem top-tier law firm na trajetória"],
+    just: "Pelo novo critério (faculdade qualquer + pós forte compensa, e BTG é tier-1), entra como Rockstar. In-house forte em contencioso bancário com volume e tier-1. Forte para abordagem se foco em banking for prioridade." },
+
+  { name: "Danielle Vasconcellos Habib", company: "In-house @ Neon (ex-Demarest)", school: "Não declarada", link: "https://www.linkedin.com/in/danielle-vasconcellos-habib/", cls: "rockstar", note: 7, anos: "5+a", part: null, ponte: false,
+    pos: [
+      "5+ anos contencioso cível massificado",
+      "Neon (fintech) in-house",
+      "Estágio no Demarest",
+      "Tech-savvy: IA generativa, jurimetria e LGPD"
+    ],
+    neg: ["Faculdade de graduação não declarada (risco real)", "Neon é fintech tier-2"],
+    just: "Aderência alta ao DNA da vaga (volume + tech + fintech). A faculdade omitida é o risco a ser confirmado antes da abordagem." },
+
+  // FP extras
+  { name: "Mariana Dib Rivero Oliva", company: "Director @ BTG Pactual (ex-Itaú)", school: "Mackenzie + Insper", link: "https://www.linkedin.com/in/mariana-dib-rivero-oliva-4957a7a3/", cls: "ruim", note: 7, anos: "9+a", part: null, ponte: false,
+    pos: [
+      "9+ anos como advogada (Itaú + BTG Director)",
+      "Mackenzie + Insper",
+      "Tech-savvy: parceria com Inspira (legaltech) e IA em litígio digital"
+    ],
+    neg: ["Director há 1+ ano: trajetória de saída executiva", "Senioridade Director acima do nível IC da vaga"],
+    just: "Mesmo caso da Lemgruber: trajetória ideal de contencioso em fintechs + liderança em litígio digital com IA, mas Director há mais de 1 ano = não encaixa pelo critério. Para vaga de líder na Enter, vira candidata imediata." },
+
+  { name: "Amanda Nunes", company: "Senior Trabalhista @ Machado Meyer", school: "FGV", link: "https://www.linkedin.com/in/amanda-dias-nunes/", cls: "fp", note: 7, anos: "9+a", part: null, ponte: false,
+    pos: [
+      "Machado Meyer Trabalhista Sênior 9+ anos (top-tier)",
+      "FGV + Lobo de Rizzo no estágio"
+    ],
+    neg: ["Área é trabalhista (não é dispute resolution amplo no sentido da vaga)", "Sem exposição a tech"],
+    just: "Trabalhista em top-tier de escritório (não in-house em fintech tier-1) é FP pelo novo critério. Senior demais. Para vaga futura de trabalhista de volume, vira Rockstar imediato." },
+
+  { name: "Isabelly Dos Santos Miranda", company: "Senior Specialist @ Nubank (ex-Machado Meyer)", school: "USP pós + FGV pós", link: "https://www.linkedin.com/in/isabelly-dos-santos-miranda-a07ba311b/", cls: "fp", note: 7, anos: "8+a", part: null, ponte: false,
+    pos: [
+      "8+ anos em trabalhista",
+      "Machado Meyer (top-tier) → Nubank (fintech tier-1)",
+      "Pós USP + pós FGV"
+    ],
+    neg: ["Área é trabalhista (FP pelo critério: ambiente certo, área errada)"],
+    just: "Trajetória ideal de top-tier → fintech tier-1, mas área é trabalhista. É exatamente o caso da observação metodológica: ambiente certo, área errada. Para outra célula da Enter (trabalhista de volume), vira Rockstar." },
+
+  { name: "Luiz Fernando Levoto", company: "Associate @ Mattos Filho (ex-Tepedino Berezowski Poppa)", school: "USP", link: "https://www.linkedin.com/in/luiz-fernando-levoto-a97442187/", cls: "fp", note: 6, anos: "5+a", part: null, ponte: false,
+    pos: ["Mattos Filho + Tepedino Berezowski Poppa", "USP"],
+    neg: ["Trajetória dominante é Mercado de Capitais Equity, não dispute"],
+    just: "Logo + faculdade certas, mas área dominante é equity, não dispute. Transição recente para contencioso ainda não consolidou." },
+
+  // Não-encaixa extras
+  { name: "Giovanna Lemos de Azevedo", company: "Legal Analyst @ BTG", school: "Mackenzie", link: "https://www.linkedin.com/in/giovannalemosdeazevedo/", cls: "ruim", note: 4, anos: "<1a efetivo", part: null, ponte: false,
+    pos: ["BTG Legal Analyst", "Mackenzie"],
+    neg: ["Menos de 1 ano efetivo (critério mínimo é 2+ anos pós-OAB)", "Antes só estágios em escritórios pequenos"],
+    just: "Junior demais. Não é perfil ruim — é caso clássico de 'ainda não pronta' para IC sênior. Em 4-5 anos vira Rockstar se mantiver a trajetória." },
+
+  { name: "Laura Freitas", company: "Special Situations @ BTG", school: "USP + intercâmbio Esade", link: "https://www.linkedin.com/in/laura-freitas-2982b2196/", cls: "ruim", note: 3, anos: "—", part: null, ponte: false,
+    pos: ["USP + Esade", "BTG"],
+    neg: ["Migrou para Special Situations: não pratica advocacia", "Direção de carreira é finanças, não direito"],
+    just: "Sinais de marca bons, mas não está mais praticando advocacia. Special Situations é área de investimento. Não há fit com Legal Strategist." }
+];
+
+const messagesLeg = [
+  {
+    stage: "Etapa 1 — Pedido de conexão (LinkedIn)",
+    title: "Mensagem curta de connect",
+    meta: "Conexão no LinkedIn (limite 300 chars). Direto e específica.",
+    body: `Oi Vitor, tudo bem? Me chamo Nathalie, sou Talent Acquisition na Enter. Sua trajetória é muito alinhada com o que estamos construindo. Adoraria me conectar com você.`,
+    rationale: "Apresentação clara (nome + função), elogio honesto sem ser exagerado. \"Adoraria me conectar\" é convite, não pedido de venda. Curta o suficiente para ser lida no celular sem fricção."
+  },
+  {
+    stage: "Etapa 2 — Primeiro contato (InMail)",
+    title: "InMail de primeiro contato",
+    meta: "Após connect aceito. Apresenta o problema da Enter e conecta com o perfil dele.",
+    body: `Oi Vitor, tudo bem?
+
+Obrigada pela conexão.
+
+Vi seu perfil e me chamou atenção sua atuação em contencioso estratégico no Machado Meyer, LDCM e Bermudes, lidando com casos complexos e de alto impacto.
+
+Estamos construindo na Enter soluções de IA para automatizar processos críticos em escala, começando pelas operações jurídicas de grandes empresas. Já levantamos mais de R$300M, com apoio de fundos como Sequoia e Founders Fund, e atendemos empresas como Meta, Itaú, Mercado Livre e Nubank.
+
+O tipo de desafio que estamos resolvendo hoje é bem alinhado com o seu perfil, especialmente na estruturação de teses jurídicas e transformação de problemas complexos em lógica replicável.
+
+Vamos marcar uma conversa?`,
+    rationale: "Abre com gancho específico no perfil dele (Machado Meyer + LDCM + Bermudes) mostrando que estudei a trajetória. Apresenta a Enter com números concretos. Conecta o desafio da Enter (teses jurídicas replicáveis em escala) com o vocabulário de quem vem de contencioso estratégico. Direto, sem enrolação."
+  },
+  {
+    stage: "Etapa 3 — Follow-up",
+    title: "Follow-up após silêncio",
+    meta: "Follow-up se não respondeu (5-7 dias). Sem suplicar.",
+    body: `Oi Vitor,
+
+Acredito muito no seu perfil para o que estamos construindo na Enter e, por isso, retomo o contato. Você vai gostar de entender com mais profundidade o desafio.
+
+Se não for o seu momento profissional, sem problema. De todo modo, fico à disposição para conversarmos.
+
+Obrigada,
+Nathalie`,
+    rationale: "Reconhece o silêncio sem cobrar. \"Se não for o seu momento profissional, sem problema\" tira a barreira psicológica de quem está feliz no emprego atual. Porta aberta sem pressão preserva relacionamento e respeita o tempo do candidato."
+  }
+];
+
+/* ====================================================================
+   RENDER E COMPORTAMENTO
+   ==================================================================== */
+const clsLabel = { rockstar: "Rockstar", fp: "Falso-positivo", naoencaixa: "Não encaixa", ruim: "Não encaixa" };
+const clsBadge = { rockstar: "badge-rock", fp: "badge-fp", naoencaixa: "badge-naoencaixa", ruim: "badge-naoencaixa" };
+
+const state = {
+  engineering: { activeFilter: "all", searchTerm: "", featuredName: "Gabriela Melo" },
+  client: { activeFilter: "all", searchTerm: "", featuredName: "Marvin Grossi" },
+  legal: { activeFilter: "all", searchTerm: "", featuredName: "Vitor Szpiz do Nascimento" }
+};
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+function renderCandidate(c, featured) {
+  const posList = c.pos.map(p => `<li>${escapeHtml(p)}</li>`).join("");
+  const negList = c.neg.map(n => `<li>${escapeHtml(n)}</li>`).join("");
+  const featTag = featured ? `<span class="featured-tag">Selecionado para Parte 4</span>` : "";
+  const ponteTag = c.ponte ? `<span class="badge badge-ponte">🤝 Ponte pessoal</span>` : "";
+  return `
+    <div class="cand-card ${featured ? 'featured' : ''}" data-cls="${c.cls}" data-name="${escapeHtml(c.name.toLowerCase())}">
+      ${featTag}
+      <div class="cand-head">
+        <div style="min-width: 0;">
+          <p class="cand-name">${escapeHtml(c.name)}</p>
+          <p class="cand-meta">${escapeHtml(c.company)} · ${escapeHtml(c.school)}</p>
+          <a class="cand-link" href="${c.link}" target="_blank" rel="noopener">Ver perfil ↗</a>
+        </div>
+        <div class="cand-badges">
+          <span class="badge ${clsBadge[c.cls]}">${clsLabel[c.cls]}</span>
+          <span class="note-pill">Nota ${c.note}</span>
+          <span class="anos-pill">${escapeHtml(c.anos)}</span>
+          ${ponteTag}
+        </div>
+      </div>
+      <div class="cand-body">
+        <div>
+          <p class="col-title">Sinais ✓</p>
+          <ul class="pos">${posList}</ul>
+        </div>
+        <div>
+          <p class="col-title">Sinais ✗</p>
+          <ul class="neg">${negList}</ul>
+        </div>
+      </div>
+      <p class="cand-just"><strong>Justificativa:</strong> ${escapeHtml(c.just)}</p>
+    </div>
+  `;
+}
+
+function renderMessage(m) {
+  return `
+    <div class="msg-card">
+      <span class="msg-stage">${escapeHtml(m.stage)}</span>
+      <p class="msg-title">${escapeHtml(m.title)}</p>
+      <p class="msg-meta">${escapeHtml(m.meta)}</p>
+      <div class="msg-body">${escapeHtml(m.body)}</div>
+      <p class="msg-rationale"><strong>↳ Lógica:</strong> ${escapeHtml(m.rationale)}</p>
+    </div>
+  `;
+}
+
+function renderOthersRow(c) {
+  const clsName = clsLabel[c.cls];
+  const clsBdg = clsBadge[c.cls];
+  const ponteTag = c.ponte ? `<span class="badge badge-ponte">🤝 Ponte</span>` : "";
+  return `
+    <div class="others-row" data-cls="${c.cls}" data-name="${escapeHtml(c.name.toLowerCase())}">
+      <div>
+        <p class="o-name">${escapeHtml(c.name)}</p>
+        <p class="o-meta">${escapeHtml(c.company)} · ${escapeHtml(c.school)}</p>
+        <p class="o-desc">${escapeHtml(c.just)}</p>
+      </div>
+      <div class="o-tags">
+        <span class="badge ${clsBdg}">${clsName}</span>
+        <span class="anos-pill">${escapeHtml(c.anos)}</span>
+        ${ponteTag}
+        <a class="o-link" href="${c.link}" target="_blank" rel="noopener">Ver perfil ↗</a>
+      </div>
+    </div>
+  `;
+}
+
+function renderVaga(scope) {
+  const dataMap = { engineering: candidatesEng, client: candidatesCli, legal: candidatesLeg };
+  const msgsMap = { engineering: messagesEng, client: messagesCli, legal: messagesLeg };
+  const introMap = { engineering: part4IntroEng, client: part4IntroCli, legal: part4IntroLeg };
+  const prefixMap = { engineering: "eng", client: "cli", legal: "leg" };
+
+  const data = dataMap[scope];
+  const msgs = msgsMap[scope];
+  const part4Intro = introMap[scope];
+  const featuredName = state[scope].featuredName;
+  const prefix = prefixMap[scope];
+
+  const part1 = data.filter(c => c.part === 1).sort((a,b) => b.note - a.note);
+  const part2 = data.filter(c => c.part === 2).sort((a,b) => b.note - a.note);
+  const part3 = data.filter(c => c.part === 3).sort((a,b) => b.note - a.note);
+  const others = data.filter(c => c.part === null).sort((a,b) => {
+    const order = { rockstar: 0, fp: 1, ruim: 2, naoencaixa: 2 };
+    if (order[a.cls] !== order[b.cls]) return order[a.cls] - order[b.cls];
+    return b.note - a.note;
+  });
+
+  document.getElementById(`${prefix}-part1-area`).innerHTML = part1.map(c => renderCandidate(c, c.name === featuredName)).join("");
+  document.getElementById(`${prefix}-part2-area`).innerHTML = part2.map(c => renderCandidate(c, false)).join("");
+  document.getElementById(`${prefix}-part3-area`).innerHTML = part3.map(c => renderCandidate(c, false)).join("");
+  document.getElementById(`${prefix}-messages-area`).innerHTML = msgs.map(renderMessage).join("");
+  document.getElementById(`${prefix}-part4-intro`).innerHTML = part4Intro;
+  document.getElementById(`${prefix}-others-area`).innerHTML = others.map(renderOthersRow).join("");
+
+  // Stats
+  const totals = data.reduce((acc, c) => { acc[c.cls] = (acc[c.cls] || 0) + 1; acc.total++; return acc; }, { rockstar: 0, fp: 0, ruim: 0, naoencaixa: 0, total: 0 });
+  document.getElementById(`${prefix}-stat-total`).textContent = totals.total;
+  document.getElementById(`${prefix}-stat-rock`).textContent = totals.rockstar;
+  document.getElementById(`${prefix}-stat-fp`).textContent = totals.fp;
+  document.getElementById(`${prefix}-stat-ruim`).textContent = (totals.ruim || 0) + (totals.naoencaixa || 0);
+}
+
+function applyFilters(scope) {
+  const paneIdMap = { engineering: "pane-engineering", client: "pane-client", legal: "pane-legal" };
+  const pane = document.getElementById(paneIdMap[scope]);
+  const cards = pane.querySelectorAll(".cand-card");
+  const filter = state[scope].activeFilter;
+  const search = state[scope].searchTerm;
+  cards.forEach(card => {
+    const filterMatchesNaoEncaixa = filter === "ruim" && (card.dataset.cls === "ruim" || card.dataset.cls === "naoencaixa");
+    const matchCls = filter === "all" || card.dataset.cls === filter || filterMatchesNaoEncaixa;
+    const matchSearch = !search || card.dataset.name.includes(search);
+    card.style.display = (matchCls && matchSearch) ? "" : "none";
+  });
+}
+
+// Filter buttons
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const scope = btn.dataset.vagaScope;
+    const paneIdMap = { engineering: "pane-engineering", client: "pane-client", legal: "pane-legal" };
+    const pane = document.getElementById(paneIdMap[scope]);
+    pane.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    state[scope].activeFilter = btn.dataset.filter;
+    applyFilters(scope);
+  });
+});
+
+// Search inputs
+// (busca por nome removida — só filtros por categoria)
+
+// Vaga toggle
+const vagaLabels = { engineering: "Engineering", client: "Client Founder", legal: "Legal Strategy", overview: "Visão geral da entrega" };
+document.querySelectorAll(".vaga-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".vaga-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    document.querySelectorAll(".vaga-pane").forEach(p => p.classList.remove("active"));
+    const paneIdMap = { engineering: "pane-engineering", client: "pane-client", legal: "pane-legal", overview: "pane-overview" };
+    document.getElementById(paneIdMap[tab.dataset.vaga]).classList.add("active");
+    const label = document.getElementById("vaga-current-label");
+    if (label) label.textContent = vagaLabels[tab.dataset.vaga];
+  });
+});
+
+// Render Visão Geral — tabela compacta dos 27 finalistas
+function renderOverview() {
+  const sources = [
+    { scope: "Engineering", data: candidatesEng, cssClass: "vaga-eng", paneId: "pane-engineering", featured: "Gabriela Melo" },
+    { scope: "Client Founder", data: candidatesCli, cssClass: "vaga-cli", paneId: "pane-client", featured: "Marvin Grossi" },
+    { scope: "Legal Strategy", data: candidatesLeg, cssClass: "vaga-leg", paneId: "pane-legal", featured: "Vitor Szpiz do Nascimento" }
+  ];
+  let html = `<div class="overview-section-header"><div>Candidato</div><div>Vaga</div><div>Categoria</div><div>Mensagem</div></div>`;
+  // Ordem fixa: rockstar primeiro, depois fp, depois ruim/naoencaixa
+  const orderCls = { rockstar: 0, fp: 1, ruim: 2, naoencaixa: 2 };
+  let rows = [];
+  sources.forEach(({ scope, data, cssClass, paneId, featured }) => {
+    data.filter(c => c.part === 1 || c.part === 2 || c.part === 3).forEach(c => {
+      rows.push({ ...c, scope, cssClass, paneId, isFeatured: c.name === featured });
+    });
+  });
+  // Ordena: por categoria, depois por vaga, depois por nota
+  rows.sort((a, b) => {
+    if (orderCls[a.cls] !== orderCls[b.cls]) return orderCls[a.cls] - orderCls[b.cls];
+    if (a.scope !== b.scope) return a.scope.localeCompare(b.scope);
+    return b.note - a.note;
+  });
+  rows.forEach(c => {
+    const msgCol = c.isFeatured
+      ? `<a class="overview-msg-link" href="#" data-jump-vaga="${c.paneId.replace('pane-','')}">Ver mensagem ↗</a>`
+      : `<span class="overview-msg-empty">—</span>`;
+    html += `
+      <div class="overview-row ${c.cssClass}">
+        <div><a class="overview-name" href="${c.link}" target="_blank" rel="noopener">${escapeHtml(c.name)} ↗</a></div>
+        <div class="overview-vaga">${escapeHtml(c.scope)}</div>
+        <div class="overview-cat">
+          <span class="badge ${clsBadge[c.cls]}">${clsLabel[c.cls]}</span>
+        </div>
+        <div>${msgCol}</div>
+      </div>
+    `;
+  });
+  document.getElementById("overview-table-area").innerHTML = html;
+
+  // Wire up "Ver mensagem" clicks: troca de aba + scroll para a Parte 4
+  document.querySelectorAll('.overview-msg-link[data-jump-vaga]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetVaga = link.dataset.jumpVaga;
+      const targetTab = document.querySelector(`.vaga-tab[data-vaga="${targetVaga}"]`);
+      if (targetTab) targetTab.click();
+      // Scroll para Parte 4 da vaga selecionada
+      setTimeout(() => {
+        const prefix = { engineering: 'eng', client: 'cli', legal: 'leg' }[targetVaga];
+        const part4 = document.getElementById(`${prefix}-messages-area`);
+        if (part4) {
+          // Abre o details ancestral
+          let parent = part4.parentElement;
+          while (parent && parent.tagName !== 'DETAILS') parent = parent.parentElement;
+          if (parent) parent.open = true;
+          part4.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
+    });
+  });
+}
+
+// ============================================================
+// 2 BOTÕES PRINCIPAIS — abre o painel correspondente (lazy)
+// ============================================================
+let _dataRendered = false;
+
+function activateTab(target) {
+  document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("is-active"));
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("is-active"));
+  // Keep the matching nav button highlighted for the active panel
+  const matchingNavBtn = document.querySelector(`.nav-btn[data-tab="${target}"]`);
+  if (matchingNavBtn) matchingNavBtn.classList.add("is-active");
+  document.querySelector(`[data-panel="${target}"]`).classList.add("is-active");
+
+  // Lazy render the data block when Perfis is opened first time
+  if (target === "perfis" && !_dataRendered) {
+    try {
+      renderVaga("engineering");
+      renderVaga("client");
+      renderVaga("legal");
+      renderOverview();
+    } catch(e) { console.error("Render error:", e); }
+    _dataRendered = true;
+  }
+
+  // Smooth scroll to the panel
+  const targetPanel = document.querySelector(`[data-panel="${target}"]`);
+  if (targetPanel) {
+    const offset = targetPanel.getBoundingClientRect().top + window.scrollY - 24;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  }
+}
+
+// Top navigation buttons (the 2 main buttons on landing)
+document.querySelectorAll(".nav-btn").forEach(btn => {
+  btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+});
+
+// Bottom CTA at the end of Bloco 01
+document.querySelectorAll(".next-block-cta-btn").forEach(btn => {
+  btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+});
+
+// Queries tabs (within the "Banco de queries prontas" toggle in step 3)
+document.querySelectorAll(".queries-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.qtab;
+    const container = tab.closest(".artifact-body");
+    if (!container) return;
+    container.querySelectorAll(".queries-tab").forEach(t => t.classList.remove("is-active"));
+    container.querySelectorAll(".queries-content").forEach(c => c.classList.remove("is-active"));
+    tab.classList.add("is-active");
+    const content = container.querySelector(`[data-qcontent="${target}"]`);
+    if (content) content.classList.add("is-active");
+  });
+});
+
+// "Próxima vaga" buttons — switch to next vaga in sequence (Eng → Cli → Leg → Overview)
+document.querySelectorAll(".next-vaga-cta-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.nextVaga;
+    // Find the matching tab in the vaga selector and click it (reuses existing logic)
+    const targetTab = document.querySelector(`.vaga-tab[data-vaga="${target}"]`);
+    if (targetTab) {
+      targetTab.click();
+      // Smooth scroll back to the vaga selector at the top
+      setTimeout(() => {
+        const wrapper = document.querySelector('.vaga-tabs-wrapper');
+        if (wrapper) {
+          const offset = wrapper.getBoundingClientRect().top + window.scrollY - 24;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+      }, 50);
+    }
+  });
+});
+</script>
+</body>
+</html>
